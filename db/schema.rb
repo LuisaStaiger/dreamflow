@@ -10,9 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_28_110724) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_28_133640) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dream_labels", force: :cascade do |t|
+    t.bigint "dream_id", null: false
+    t.bigint "label_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dream_id"], name: "index_dream_labels_on_dream_id"
+    t.index ["label_id"], name: "index_dream_labels_on_label_id"
+  end
+
+  create_table "dreams", force: :cascade do |t|
+    t.date "date"
+    t.string "content"
+    t.string "text"
+    t.string "recording"
+    t.bigint "users_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["users_id"], name: "index_dreams_on_users_id"
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.string "name"
+    t.string "string"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.text "text"
+    t.string "default"
+    t.string "string"
+    t.bigint "users_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["users_id"], name: "index_questions_on_users_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +63,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_110724) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "dream_labels", "dreams"
+  add_foreign_key "dream_labels", "labels"
+  add_foreign_key "dreams", "users", column: "users_id"
+  add_foreign_key "questions", "users", column: "users_id"
 end
