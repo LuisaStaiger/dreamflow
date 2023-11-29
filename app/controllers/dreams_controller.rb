@@ -1,5 +1,5 @@
 class DreamsController < ApplicationController
-  before_action :set_dream, only: %i[]
+  before_action :set_dream, only: %i[show]
 
   def new
     @dream = Dream.new
@@ -16,6 +16,8 @@ class DreamsController < ApplicationController
     end
   end
 
+  def show
+  end
 
   private
 
