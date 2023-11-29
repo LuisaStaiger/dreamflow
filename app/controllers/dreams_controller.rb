@@ -2,7 +2,11 @@ class DreamsController < ApplicationController
   before_action :set_dream, only: %i[show destroy]
 
   def index
-    @dreams = Dream.all
+    if params[:search]
+      @dreams = Dream.where("content LIKE ?", "%#{params[:search]}%")
+    else
+      @dreams = Dream.all
+    end
   end
 
   def new

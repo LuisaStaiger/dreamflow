@@ -1,26 +1,19 @@
-  <div class="wrap">
-    <div class="search">
-        <input type="text" class="searchTerm" placeholder="What are you looking for?">
-        <button type="submit" class="searchButton">
-          <i class="fa fa-search"></i>
-      </button>
-    </div>
-  </div>
-
-    <% @dreams.each do |dream| %>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted"><%= dream.date %></h6>
-          <p class="card-text"><div><%= dream.content.length > 30 ? "#{dream.content[0...30]}..." : dream.content %></div>
-      </p>
-          <a href="#" class="card-link"><i class="fa-regular fa-pen-to-square"></i></a>
-          <a href="#" class="card-link"><%= link_to dream_path(dream), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-    <i class="fa-solid fa-trash-can"></i>
+<div class="wrap">
+  <%= form_tag dreams_path, method: :get, class: "search" do %>
+    <%= text_field_tag :search, params[:search], class: "searchTerm", placeholder: "What are you looking for?" %>
+    <%= submit_tag "Search", class: "searchButton" %>
   <% end %>
-  </a>
-        </div>
-      </div>
-    <% end %>
+</div>
 
-<%# <%= link_to, dreams_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-<%# <i class="fa-solid fa-trash-can"></i> %>
+<% @dreams.each do |dream| %>
+  <%=link_to dream_path(dream) do %>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted"><%= dream.date %></h6>
+        <p class="card-text">
+          <div><%= dream.content.length > 30 ? "#{dream.content[0...30]}..." : dream.content %></div>
+        </p>
+      </div>
+    </div>
+ <% end %>
+
