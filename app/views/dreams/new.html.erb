@@ -1,6 +1,11 @@
-<h1>Hello World</h1>
+
+<button><%= link_to "return", root_path %></button>
+
+<h1>write your dream below...</h1>
 
 <%= simple_form_for(@dream) do |f| %>
 <%= f.input :content %>
 <%= f.submit %>
 <% end %>
+<button type="button">delete</button>
+<button type="button">add a label</button>

@@ -1,26 +1,29 @@
 class DreamsController < ApplicationController
-  before_action :set_dream, only: %i[new create]
+  before_action :set_dream, only: %i[]
 
   def new
-    @dreams = Dream.new
+    @dream = Dream.new
   end
 
   def create
-    if @dreams.save!
-      redirect to #homepage
+    @dream = Dream.new(dream_params)
+    @dream.user = current_user
+    raise
+    if @dream.save!
+      redirect_to root_path, notice: 'Your dream was saved!'
     else
-      render 'new'
+      render :new
     end
   end
 
   private
 
   def set_dream
-    @dream = Dream.find(params[:dream_id])
+    @dream = Dream.find(params[:id])
   end
 
   def dream_params
-    params.require(:dream).permit("we need to update before we can update the drams params.")
+    params.require(:dream).permit(:content)
   end
 
 end
