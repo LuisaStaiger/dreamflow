@@ -9,22 +9,26 @@ require 'faker'
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Label.destroy_all
 Dream.destroy_all
+User.destroy_all
+
+user = User.new(email: "giulia@gmail.com", password: "ciao123")
+user.save!
 
 10.times do
 dream = Dream.new(
   date: Faker::Date.between(from: 1.year.ago, to: Date.today),
-  content: Faker::Lorem.paragraphs(number: 1, supplemental: true),
+  content: Faker::Lorem.paragraph(sentence_count: 3),
+  user: user
 )
 dream.save!
 end
 
 puts 'Finished!'
 
-# TODO: add this array to labels controller
-@labels = ["Nightmare", "Pregnancy", "Memory", "Ex", "Grandfather", "Sleep paralysis", "Sea", "Animal"]
+["Nightmare", "Pregnancy", "Memory", "Ex", "Grandfather", "Sleep paralysis", "Sea", "Animal"].each do |label|
+  Label.create(name: label)
+end
 
-# @labels = labels.each do | label |
-#   label.dream
-# end
-# TODO: create a faker user??
+puts 'Finished!'
