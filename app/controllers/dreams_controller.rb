@@ -1,6 +1,10 @@
 class DreamsController < ApplicationController
   before_action :set_dream, only: %i[show]
 
+  def index
+    @dreams = Dream.all
+  end
+
   def new
     @dream = Dream.new
   end
