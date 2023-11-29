@@ -1,5 +1,5 @@
 class DreamsController < ApplicationController
-  before_action :set_dream, only: %i[]
+  before_action :set_dream, only: %i[show]
 
   def index
     @dreams = Dream.all
@@ -18,6 +18,9 @@ class DreamsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
   end
 
   private
