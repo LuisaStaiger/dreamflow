@@ -7,15 +7,20 @@
     </div>
   </div>
 
-  <% @dreams.each do |dream| %>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h6 class="card-subtitle mb-2 text-muted"><%= dream.date %></h6>
-        <p class="card-text"><div><%= dream.content.length > 30 ? "#{dream.content[0...30]}..." : dream.content %></div>
-    </p>
-        <a href="#" class="card-link"><i class="fa-regular fa-pen-to-square"></i></a>
-        <a href="#" class="card-link"><i class="fa-solid fa-trash-can"></i></a>
-      </div>
-    </div>
+    <% @dreams.each do |dream| %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted"><%= dream.date %></h6>
+          <p class="card-text"><div><%= dream.content.length > 30 ? "#{dream.content[0...30]}..." : dream.content %></div>
+      </p>
+          <a href="#" class="card-link"><i class="fa-regular fa-pen-to-square"></i></a>
+          <a href="#" class="card-link"><%= link_to dream_path(dream), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+    <i class="fa-solid fa-trash-can"></i>
   <% end %>
+  </a>
+        </div>
+      </div>
+    <% end %>
 
+<%# <%= link_to, dreams_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<%# <i class="fa-solid fa-trash-can"></i> %>

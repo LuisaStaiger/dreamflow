@@ -1,6 +1,5 @@
-<h1>Pages#home</h1>
-<p><%= "Hello #{current_user.email.split('@').first}" %></p>
-<p><%= "Today's Date: #{Date.today.strftime('%A, %B %d, %Y')}" %></p>
+<h3><%= "Welcome #{current_user.email.split('@').first}" %></h3>
+<p><%= "#{Date.today.strftime('%A, %B %d, %Y')}" %></p>
 
 
 <button type="button">record</button>
