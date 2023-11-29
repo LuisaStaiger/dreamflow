@@ -19,7 +19,8 @@ user.save!
 10.times do
 dream = Dream.new(
   date: Faker::Date.between(from: 1.year.ago, to: Date.today),
-  content: Faker::Lorem.paragraph(sentence_count: 3),
+  content: Faker::Books::Lovecraft.paragraph(sentence_count: 5),
+  #content: Faker::Lorem.paragraph(sentence_count: 3),
   user: user
 )
 dream.save!

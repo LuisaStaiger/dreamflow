@@ -1,6 +1,10 @@
 class DreamsController < ApplicationController
   before_action :set_dream, only: %i[]
 
+  def index
+    @dreams = Dream.all
+  end
+
   def new
     @dream = Dream.new
   end
@@ -8,7 +12,7 @@ class DreamsController < ApplicationController
   def create
     @dream = Dream.new(dream_params)
     @dream.user = current_user
-    @dream.date = Date.today 
+    @dream.date = Date.today
     if @dream.save!
       redirect_to root_path, notice: 'Your dream was saved!'
     else
