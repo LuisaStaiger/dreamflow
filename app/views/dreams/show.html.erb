@@ -12,4 +12,11 @@
 
 
 
-<p><%= href="#" class="card-link"><i class="fa-regular fa-pen-to-square"></i> %></p>
+<p href="#" class="card-link"><i class="fa-regular fa-pen-to-square"></i>
+
+</p>
+
+
+        <a href="#" class="card-link"><%= link_to dream_path(@dream), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+    <i class="fa-solid fa-trash-can"></i>
+<% end %>
