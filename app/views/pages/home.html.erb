@@ -1,3 +1,4 @@
+<h1>Pages#home</h1>
 <p><%= "Hello #{current_user.email.split('@').first}" %></p>
 <p><%= "Today's Date: #{Date.today.strftime('%A, %B %d, %Y')}" %></p>
 
@@ -5,3 +6,4 @@
 <button type="button">record</button>
 <%= link_to "write", new_dream_path %>
 <button type="button">questions</button>
+<p><%= link_to "Index", dreams_path %></p>

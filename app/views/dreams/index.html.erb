@@ -1,0 +1,21 @@
+  <div class="wrap">
+    <div class="search">
+        <input type="text" class="searchTerm" placeholder="What are you looking for?">
+        <button type="submit" class="searchButton">
+          <i class="fa fa-search"></i>
+      </button>
+    </div>
+  </div>
+
+  <% @dreams.each do |dream| %>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted"><%= dream.date %></h6>
+        <p class="card-text"><div><%= dream.content.length > 30 ? "#{dream.content[0...30]}..." : dream.content %></div>
+    </p>
+        <a href="#" class="card-link"><i class="fa-regular fa-pen-to-square"></i></a>
+        <a href="#" class="card-link"><i class="fa-solid fa-trash-can"></i></a>
+      </div>
+    </div>
+  <% end %>
+
