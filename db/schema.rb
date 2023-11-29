@@ -25,13 +25,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_133640) do
 
   create_table "dreams", force: :cascade do |t|
     t.date "date"
-    t.string "content"
-    t.string "text"
+    t.text "content"
     t.string "recording"
-    t.bigint "users_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_dreams_on_users_id"
+    t.index ["user_id"], name: "index_dreams_on_user_id"
   end
 
   create_table "labels", force: :cascade do |t|
@@ -45,10 +44,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_133640) do
     t.text "text"
     t.string "default"
     t.string "string"
-    t.bigint "users_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_questions_on_users_id"
+    t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,6 +64,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_133640) do
 
   add_foreign_key "dream_labels", "dreams"
   add_foreign_key "dream_labels", "labels"
-  add_foreign_key "dreams", "users", column: "users_id"
-  add_foreign_key "questions", "users", column: "users_id"
+  add_foreign_key "dreams", "users"
+  add_foreign_key "questions", "users"
 end
