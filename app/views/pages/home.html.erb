@@ -1,8 +1,11 @@
-<h3><%= "Welcome #{current_user.email.split('@').first}" %></h3>
-<p><%= "#{Date.today.strftime('%A, %B %d, %Y')}" %></p>
+
+<h3 class="title"><%= "Welcome #{current_user.email.split('@').first}" %></h3>
+<p class = "date"><%= "#{Date.today.strftime('%A, %B %d, %Y')}" %></p>
 
 
-<button type="button">record</button>
+<button type="button" class="button"><i class="fa-solid fa-microphone-lines"></i></button>
 <%= link_to "write", new_dream_path %>
-<button type="button">questions</button>
+<button type="button" class="button">questions</button>
 <p><%= link_to "Index", dreams_path %></p>
+
+<%= link_to "Questions index", questions_path %>

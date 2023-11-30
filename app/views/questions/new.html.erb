@@ -1,0 +1,9 @@
+<h2>type your question</h2>
+
+<%= simple_form_for(@question) do |f| %>
+<%= f.input :question_text %>
+<%= f.submit %>
+<% end %>
+
+<button type="button">delete</button>
+<%= link_to "return", questions_path %>

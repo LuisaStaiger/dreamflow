@@ -1,1 +1,32 @@
 // Specific CSS for your home-page
+body {
+  background: rgb(0,31,36);
+  background: linear-gradient(90deg, rgba(0,31,36,1) 0%, rgba(4,4,33,1) 15%, #d349eb 100%);
+}
+
+.title {
+  font-family: "Akkurat-Mono","Andale Mono",sans-serif;
+  color: white;
+  text-align: center;
+  margin-top: 30px;
+  letter-spacing: 5px;
+}
+
+.date {
+  font-family: "Akkurat-Mono","Andale Mono",sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.button {
+  border-radius: 50px;
+  background: transparent;
+  text-decoration: none;
+  color: #885df1;
+  font-size: 16px;
+  line-height: 22px;
+  padding: 10px 20px;
+  border: none;
+  border: 1px solid #885df1;
+  transition: background 200ms ease;
+}
