@@ -10,5 +10,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   # get "dreams/new", to: "dreams#new"
-  resources :dreams, only: [:new, :create, :show, :index, :destroy]
+
+  get "dreams/new_audio", to: "dreams#new_audio", as: :audio
+
+  resources :dreams
+
 end

@@ -1,5 +1,8 @@
 class DreamsController < ApplicationController
-  before_action :set_dream, only: %i[show destroy]
+  before_action :set_dream, only: %i[show destroy edit update]
+
+  def new_audio
+  end
 
   def index
     if params[:search]
@@ -27,10 +30,23 @@ class DreamsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @dream.update(dream_params)
+      redirect_to dream_path(@dream)
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @dream.destroy
     redirect_to dreams_path, status: :see_other
   end
+
+
 
   private
 
