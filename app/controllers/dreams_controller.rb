@@ -32,6 +32,10 @@ class DreamsController < ApplicationController
     redirect_to dreams_path, status: :see_other
   end
 
+  def new_audio
+
+  end
+  
   private
 
   def set_dream

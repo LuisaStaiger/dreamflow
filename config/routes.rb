@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   # root "posts#index"
   # get "dreams/new", to: "dreams#new"
   resources :dreams, only: [:new, :create, :show, :index, :destroy]
+  get "dreams/new_audio", to: "dreams#new_audio", as: :new_audio
 end
