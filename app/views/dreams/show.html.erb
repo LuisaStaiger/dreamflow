@@ -7,16 +7,15 @@
 <h2><%= @dream.date %></h2>
 <p><%= @dream.content %></p>
 
-<button type="button">delete dream</button>
-<button type="button">edit dream</button>
-
-
-
-<p href="#" class="card-link"><i class="fa-regular fa-pen-to-square"></i>
-
-</p>
-
-
-        <a href="#" class="card-link"><%= link_to dream_path(@dream), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+<p>
+  <%= link_to dream_path(@dream), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "card-link" do %>
     <i class="fa-solid fa-trash-can"></i>
-<% end %>
+  <% end %>
+
+  <%# some space between the icons %>
+  <span style="margin: 0 5px;"></span>
+
+  <a href="#" class="card-link">
+    <i class="fa-regular fa-pen-to-square"></i>
+  </a>
+</p>
