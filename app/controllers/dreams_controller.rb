@@ -1,5 +1,5 @@
 class DreamsController < ApplicationController
-  before_action :set_dream, only: %i[show destroy edit]
+  before_action :set_dream, only: %i[show destroy edit update]
 
   def index
     if params[:search]
@@ -28,7 +28,6 @@ class DreamsController < ApplicationController
   end
 
   def edit
-    @dream = Dream.new
   end
 
   def update
