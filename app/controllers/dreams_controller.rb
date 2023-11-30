@@ -1,6 +1,9 @@
 class DreamsController < ApplicationController
   before_action :set_dream, only: %i[show destroy edit update]
 
+  def new_audio
+  end
+
   def index
     if params[:search]
       @dreams = Dream.where("content LIKE ?", "%#{params[:search]}%")
@@ -43,10 +46,8 @@ class DreamsController < ApplicationController
     redirect_to dreams_path, status: :see_other
   end
 
-  def new_audio
 
-  end
-  
+
   private
 
   def set_dream
