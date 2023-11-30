@@ -1,5 +1,5 @@
-<p><%= "Hello #{current_user.email.split('@').first}" %></p>
-<p><%= "Today's Date: #{Date.today.strftime('%A, %B %d, %Y')}" %></p>
+<h3><%= "Welcome #{current_user.email.split('@').first}" %></h3>
+<p><%= "#{Date.today.strftime('%A, %B %d, %Y')}" %></p>
 
 
 <button type="button">record</button>
@@ -7,3 +7,4 @@
 <button type="button"><%= link_to "write", new_dream_path %></button>
 
 <button type="button">questions</button>
+<p><%= link_to "Index", dreams_path %></p>

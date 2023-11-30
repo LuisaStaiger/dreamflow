@@ -1,5 +1,13 @@
 class DreamsController < ApplicationController
-  before_action :set_dream, only: %i[show edit]
+  before_action :set_dream, only: %i[show destroy edit]
+
+  def index
+    if params[:search]
+      @dreams = Dream.where("content LIKE ?", "%#{params[:search]}%")
+    else
+      @dreams = Dream.all
+    end
+  end
 
   def new
     @dream = Dream.new
@@ -25,10 +33,15 @@ class DreamsController < ApplicationController
 
   def update
     if @dream.update(dream_params)
-    redirect_to dream_path(@dream)
+      redirect_to dream_path(@dream)
     else
       render :edit
     end
+  end
+
+  def destroy
+    @dream.destroy
+    redirect_to dreams_path, status: :see_other
   end
 
   private
