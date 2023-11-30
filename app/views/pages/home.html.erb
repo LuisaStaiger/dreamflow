@@ -1,7 +1,10 @@
-<h3><%= "Welcome #{current_user.email.split('@').first}" %></h3>
-<p><%= "#{Date.today.strftime('%A, %B %d, %Y')}" %></p>
 
+<h3 class="title"><%= "Welcome #{current_user.email.split('@').first}" %></h3>
+<p class = "date"><%= "#{Date.today.strftime('%A, %B %d, %Y')}" %></p>
 
-<button type="button"><%= link_to "record", audio_path %></button>
-<button type="button"><%= link_to "write", new_dream_path %></button>
-<button type="button">questions</button>
+<button type="button" class="button"><%= link_to "Questions", questions_path %></button>
+<button type="button" class="button"><%= link_to audio_path do %>
+  <i class="fa-solid fa-microphone-lines"></i>
+<% end %>
+</button>
+<button type="button" class="button"><%= link_to "Write", new_dream_path %></button>
