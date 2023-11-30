@@ -18,3 +18,17 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+
+
+.delete_icon {
+  display: flex;
+  width: 51px;
+  height: 52.821px;
+  padding: 10.929px;
+  justify-content: center;
+  align-items: center;
+  gap: 14.571px;
+  flex-shrink: 0;
+  border-radius: 14.571px;
+  background: rgba(255, 255, 255, 0.20);
+}
