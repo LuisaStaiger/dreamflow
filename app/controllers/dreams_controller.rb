@@ -1,5 +1,5 @@
 class DreamsController < ApplicationController
-  before_action :set_dream, only: %i[show destroy]
+  before_action :set_dream, only: %i[show destroy edit update]
 
   def index
     if params[:search]
@@ -25,6 +25,17 @@ class DreamsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @dream.update(dream_params)
+      redirect_to dream_path(@dream)
+    else
+      render :edit
+    end
   end
 
   def destroy

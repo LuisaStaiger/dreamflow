@@ -1,0 +1,11 @@
+<button><%= link_to "return to homepage", root_path %></button>
+
+<h1><%="edit your dream from #{@dream.date}"%></h1>
+
+<%= simple_form_for(@dream) do |f| %>
+<%= f.input :content %>
+<%= f.submit %>
+<% end %>
+
+<button type="button">delete</button>
+<button type="button">add a label</button>
