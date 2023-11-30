@@ -1,26 +1,19 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
 
 .nav-link {
   display: flex;
   flex-direction: column;
   padding: 14px 16px;
   align-items: center;
-  margin-right: 5px;
   font-size: 18px; /* Adjust the icon size */
   color:rgba(181, 174, 190, 1)/* Set the icon color */
 }
 
-.navbar {
-  background-color:rgb(210, 25, 25)
+.navbar-bottom {
+  display: flex;
+  justify-content: space-between;
+  background-color:rgba(53, 51, 81, 1);
+}
+
+.navbar-bottom p {
+  margin: 0;
 }
