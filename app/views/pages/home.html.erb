@@ -15,13 +15,13 @@
   <img src="<%= asset_url("moonball.png")%>" alt="" class="moonball">
 <img src="<%= asset_url("figure.png")%>" alt="" class="figure">
   <div class="row justify-content-center text-center">
-    <div class="col-12">
+    <div class="col-12" style="z-index: 10">
       <button type="button" class="button"><%= link_to new_dream_path do %><i class="fa-solid fa-pen"></i><% end %></button>
     </div>
   </div>
 
   <div class="row justify-content-center text-center">
-    <div class="col-6">
+    <div class="col-6" style="z-index: 10">
       <button type="button" class="button">
         <%= link_to audio_path do %>
           <i class="fa-solid fa-microphone-lines"></i>
@@ -29,7 +29,7 @@
       </button>
     </div>
 
- <div class="col-6">
+ <div class="col-6" style="z-index: 10">
       <button type="button" class="button"><%= link_to questions_path do %><i class="fa-solid fa-question"></i><% end %></button>
     </div>
   </div>
