@@ -1,0 +1,38 @@
+.new_container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 16px;
+
+  min-height: 500px; /* Set a minimum height if needed */
+  max-height: 80vh; /* Set a maximum height if needed */
+  flex-shrink: 0;
+
+  border-radius: 20px;
+  border: 1.5px solid rgba(255, 255, 255, 0.50);
+  background: rgba(255, 255, 255, 0.50);
+  background-blend-mode: overlay;
+  backdrop-filter: blur(30px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  overflow-y: auto; /* Add scrollbar if content exceeds max-height */
+}
+
+.input_container {
+  width: 348px;
+  min-height: 300px; /* Set a minimum height if needed */
+  flex-grow: 1; /* Let the input container grow to take up available space */
+  margin-bottom: 15px;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}

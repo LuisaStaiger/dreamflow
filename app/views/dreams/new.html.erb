@@ -1,11 +1,16 @@
 
-<button><%= link_to "return", root_path %></button>
+<button class="button_one"><%= link_to "return", root_path %></button>
 
-<h1>write your dream below...</h1>
+<div class="new_container">
+  <%= simple_form_for(@dream) do |f| %>
+    <div class="input_container">
+      <%= f.input :content, input_html: { class: 'form-control' } %>
+    </div>
+    <%= f.submit "Save", class: "button_one" %>
+  <% end %>
 
-<%= simple_form_for(@dream) do |f| %>
-<%= f.input :content %>
-<%= f.submit %>
-<% end %>
-<button type="button">delete</button>
-<button type="button">add a label</button>
+  <div class="buttons-container">
+    <button type="button" class="button_one">Delete</button>
+    <button type="button" class="button_one">Add a Label</button>
+  </div>
+</div>
