@@ -16,17 +16,40 @@ body {
   font-family: "Akkurat-Mono","Andale Mono",sans-serif;
   color: white;
   text-align: center;
+  margin-bottom: 200px;
+  margin-top: 15px;
 }
 
 .button {
   border-radius: 50px;
   background: transparent;
   text-decoration: none;
-  color: #885df1;
-  font-size: 16px;
-  line-height: 22px;
-  padding: 10px 20px;
+  color: #575489;
+  font-size: 40px;
+  padding: 15px 27px;
   border: none;
-  border: 1px solid #885df1;
+  border: 1px solid #575489;
   transition: background 200ms ease;
+}
+
+.button i {
+  /* Adjust icon styles if needed */
+  margin-right: 5px; /* Adjust spacing between icon and text */
+}
+
+
+.fa-solid{
+  color:#575489
+}
+
+.moonball{
+  position: fixed;
+  top: -90px;
+  left: -90px;
+}
+
+.figure{
+  position: fixed;
+  right: -270px;
+  top: 320px;
 }
