@@ -12,12 +12,11 @@
   </head>
   <body>
     <%= render "shared/flashes" %>
-
     <main>
       <%= yield %>
-     </main>
-
-     <%= render 'shared/bottom_navbar' %>
-
+    </main>
+    <div class="d-flex d-flex justify-content-center">
+      <%= render 'shared/bottom_navbar' %>
+    </div>
   </body>
 </html>
