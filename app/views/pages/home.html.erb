@@ -1,5 +1,14 @@
+<% current_hour = Time.now.hour %>
+<% if current_hour < 12 %>
+  <h1 class="title"><%= "Good Morning, #{current_user.username}"%>!💭</h1>
+<% elsif current_hour < 18 %>
+  <h1 class="title"><%= "Good Afternoon, #{current_user.username}"%>!☀️</h1>
+<% elsif current_hour < 22 %>
+  <h1 class="title"><%= "Good Evening, #{current_user.username}"%>!🌅</h1>
+<% else %>
+  <h1 class="title"><%= "Good Night, #{current_user.username}"%>!🌙</h1>
+<% end %>
 
-<h3 class="title"><%= "Welcome #{current_user.email.split('@').first}" %></h3>
 <p class = "date"><%= "#{Date.today.strftime('%A, %B %d, %Y')}" %></p>
 
 <button type="button" class="button"><%= link_to "Questions", questions_path %></button>

@@ -1,23 +1,20 @@
-
-<%# <% @questions_data.each do |question|%>
-  <%#= question.question_text %>
-<%# end %>
-
-    <% @questions_data.each do |question| %>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted"><%= question.question_text %></h6>
-          <p class="card-text"><div><%= question.question_text.length > 30 ? "#{question.question_text[0...30]}..." : question.question_text %></div>
-      </p>
-      <% if question.default == false %>
-          <a href="#" class="card-link"><i class="fa-regular fa-pen-to-square"></i></a>
-          <a href="#" class="card-link"><%= link_to new_question_path(@questions), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-      <% end %>
-    <i class="fa-solid fa-trash-can"></i>
-  <% end %>
-  </a>
-        </div>
+<% @questions_data.each do |question| %>
+  <% if question.user_id == current_user.id %>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted"><%= question.question_text %></h6>
+        <p class="card-text">
+          <div>
+            <%= question.explanation_text.truncate(200)%>
+          </div>
+        </p>
+        <% if question.correct == false %>
+          <%= link_to "Edit", edit_question_path(question), class: "card-link" %>
+          <%= link_to "Delete", question_path(question), method: :delete, data: { confirm: "Are you sure?" }, class: "card-link" %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+  <% end %>
+<% end %>
 
 <%= link_to "Add Question", new_question_path(@questions) %>

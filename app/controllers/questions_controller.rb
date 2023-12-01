@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.user = current_user
-    @question.default = false
+    @question.correct = false
 
     if @question.save!
       redirect_to questions_path, notice: 'Your question was saved!'
@@ -30,7 +30,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    
+
     @question.destroy
     redirect_to questions_path, status: :see_other
   end
