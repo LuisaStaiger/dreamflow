@@ -1,19 +1,38 @@
-
-.nav-link {
-  display: flex;
-  flex-direction: column;
-  padding: 14px 16px;
-  align-items: center;
-  font-size: 18px; /* Adjust the icon size */
-  color:rgba(181, 174, 190, 1)/* Set the icon color */
+.navbar-bottom p {
+  margin: 0;
 }
 
 .navbar-bottom {
+  margin-left: 16px;
+  // margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  width: 362px;
+  padding: 14px 16px;
   display: flex;
-  justify-content: space-between;
-  background-color:rgba(53, 51, 81, 1);
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  // width: 100%;
+  // z-index: 0; /* Adjust the z-index as needed */
+  background-color: rgba(53, 51, 81, 1);
 }
 
-.navbar-bottom p {
-  margin: 0;
+.nav-item {
+  display: inline-block; /* Ensures that items are on the same line */
+  margin: 0 10px;
+}
+
+.nav-link.bottom-icons {
+  text-align: center;
+  color: rgba(181, 174, 190, 1);
+  text-decoration: none;
+  display: block;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .nav-item {
+    margin: 0 5px; /* Adjust margin for smaller screens */
+  }
 }
