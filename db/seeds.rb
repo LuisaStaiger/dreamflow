@@ -5,6 +5,7 @@ Label.destroy_all
 Dream.destroy_all
 User.destroy_all
 Question.destroy_all
+DreamQuestion.destroy_all
 
 puts "Creating Users 🙋🏼‍♀️ 🤷🏼‍♀️ 🤷🏽‍♀️ 💁🏻‍♀️"
 users = User.create([
@@ -85,7 +86,6 @@ puts "Creating Label"
 end
 
 puts "Creating Questions 💬 💬 💬"
-
 questions_data = [
   {
     question: "Did I dream last night?",
@@ -138,15 +138,17 @@ questions_data = [
   }
 ]
 
-users.each do |user|
+
   questions_data.each do |data|
     Question.create!(
       question_text: data[:question],
       explanation_text: data[:explanation],
       correct: data[:correct],
-      user: user
+      user: User.last
     )
   end
-end
+
+  DreamQuestion.create(question: Question.last)
+  DreamQuestion.create(question: Question.first)
 
 puts "Finished!"

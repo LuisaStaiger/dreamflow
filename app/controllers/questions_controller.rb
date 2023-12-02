@@ -1,12 +1,15 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions_data = Question.all
+    # @questions = Question.all
+    # @answer = Answer.new
+    @dream_questions = DreamQuestion.all
   end
 
 
   def new
     @question = Question.new
+
   end
 
   def create
@@ -21,12 +24,12 @@ class QuestionsController < ApplicationController
     end
   end
 
+
   def show
     set_question
   end
 
   def edit
-
   end
 
   def destroy
