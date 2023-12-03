@@ -21,7 +21,7 @@ class DreamsController < ApplicationController
     @dream.user = current_user
     @dream.date = Date.today
     if @dream.save!
-      redirect_to root_path, notice: 'Your dream was saved!'
+      redirect_to dreams_path, notice: 'Your dream was saved!💭'
     else
       render :new
     end

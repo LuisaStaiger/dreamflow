@@ -1,11 +1,15 @@
-<button><%= link_to "return to homepage", root_path %></button>
+<div class="container p-3 text-whiteo">
+  <%= link_to "↩", dreams_path, class: "btn button_one" %>
 
-<h1><%="edit your dream from #{@dream.date}"%></h1>
+  <h1><%="Edit your dream from #{@dream.date} 🌙"%></h1>
 
-<%= simple_form_for(@dream) do |f| %>
-<%= f.input :content %>
-<%= f.submit %>
-<% end %>
+  <%= simple_form_for(@dream) do |f| %>
+  <%= f.input :content %>
+  <%= f.submit %>
+  <% end %>
 
-<button type="button">delete</button>
-<button type="button">add a label</button>
+  <div class="buttons-container">
+    <%= link_to 'Delete', dream_path(@dream), class: "btn button_one", data: { "turbo-method": :delete } %>
+    <%= link_to 'Add a label', edit_dream_path(@dream), class: "btn button_one" %>
+  </div>
+</div>

@@ -1,19 +1,21 @@
-<div class="wrap">
-  <%= form_tag dreams_path, method: :get, class: "search" do %>
-    <%= text_field_tag :search, params[:search], class: "searchTerm", placeholder: "What are you looking for?" %>
-    <%= submit_tag "Search", class: "searchButton" %>
+<div class="container p-3">
+  <div class="wrap">
+    <%= form_tag dreams_path, method: :get, class: "search" do %>
+      <%= text_field_tag :search, params[:search], class: "searchTerm", placeholder: "What are you looking for?" %>
+      <%= submit_tag "Search", class: "btn searchButton" %>
+    <% end %>
+  </div>
+
+  <% @dreams.each do |dream| %>
+    <%=link_to dream_path(dream) do %>
+      <div class="card m-3 rounded" style="width: 18rem;">
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2"><%= dream.date %></h6>
+            <p class="card-text">
+              <div><%= dream.content&.truncate(30) || dream.answers.map(&:user_answer).join(" ") %></div>
+            </p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
-
-<% @dreams.each do |dream| %>
-  <%=link_to dream_path(dream) do %>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h6 class="card-subtitle mb-2 text-muted"><%= dream.date %></h6>
-        <p class="card-text">
-          <div><%= dream.content&.truncate(30) || dream.answers.map(&:user_answer).join(" ") %></div>
-        </p>
-      </div>
-    </div>
-   <% end %>
- <% end %>
