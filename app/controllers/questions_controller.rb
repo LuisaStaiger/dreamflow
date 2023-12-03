@@ -1,7 +1,8 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions_data = Question.all
+    @dream_of_today = Dream.todays_dream(current_user: current_user)
+    @questions = Question.where(user: current_user).or(Question.where(original: true))
   end
 
 
@@ -21,12 +22,12 @@ class QuestionsController < ApplicationController
     end
   end
 
+
   def show
     set_question
   end
 
   def edit
-
   end
 
   def destroy

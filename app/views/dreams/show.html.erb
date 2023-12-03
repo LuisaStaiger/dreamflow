@@ -1,21 +1,28 @@
-<p><button><%= link_to "return to library", dreams_path %></button></p>
-<p>
-<button type="button">label 1</button>
-<button type="button">label 2</button>
-</p>
+<div class="container p-3 text-white">
+  <div class="row">
+    <%= link_to "↩", dreams_path, class: "btn button_one" %>
+  </div>
 
-<h2><%= @dream.date %></h2>
-<p><%= @dream.content %></p>
+  <div class="row">
+    <p>Label 1</p>
+    <p>Label 2</p>
+  </div>
 
-<p>
-  <%= link_to dream_path(@dream), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "card-link" do %>
-    <i class="fa-solid fa-trash-can"></i>
-  <% end %>
+<div class="container dream_container p-3">
+  <h2><%= @dream.date %></h2>
+  <p><%= @dream.content %></p>
 
-  <%# some space between the icons %>
-  <span style="margin: 0 5px;"></span>
+  <p>
+    <%= link_to dream_path(@dream), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "card-link" do %>
+      <i class="fa-solid fa-trash-can"></i>
+    <% end %>
 
- <%= link_to edit_dream_path(@dream), class: "card-link" do %>
-    <i class="fa-regular fa-pen-to-square"></i>
-  <% end %>
-</p>
+    <%# some space between the icons %>
+    <span style="margin: 0 5px;"></span>
+
+  <%= link_to edit_dream_path(@dream), class: "card-link" do %>
+      <i class="fa-regular fa-pen-to-square"></i>
+    <% end %>
+  </p>
+</div>
+</div>
