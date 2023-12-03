@@ -1,19 +1,13 @@
 class DreamQuestionsController < ApplicationController
-  def create_dream_from_answers
-    # Code that generates new dream from answers from the questions
+  def create
+    @dream_question = DreamQuestion.create(dream_question_params)
+    Answer.create(dream_question: @dream_question, user_answer: params.dig(:answer, :user_answer))
+    redirect_to questions_path
   end
 
-  def create
+  private
 
-
-      @dream_question = DreamQuestion.find(params[:answer][:dream_question])
-      @answer = Answer.create(user_answer: params[:answer][:user_answer])
-
-      @dream_question.update(answer:@answer)
-
-      @dream = Dream.create(user: current_user, dream_question: @dream_question, date: Date.today )
-      redirect_to dream_path(@dream)
-
-
+  def dream_question_params
+    params.require(:answer).permit(:dream_id, :question_id)
   end
 end

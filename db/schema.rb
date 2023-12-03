@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_01_165021) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_03_115442) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_01_165021) do
     t.text "user_answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "dream_question_id"
+    t.index ["dream_question_id"], name: "index_answers_on_dream_question_id"
   end
 
   create_table "dream_labels", force: :cascade do |t|
@@ -30,11 +32,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_01_165021) do
   end
 
   create_table "dream_questions", force: :cascade do |t|
-    t.bigint "answer_id"
     t.bigint "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["answer_id"], name: "index_dream_questions_on_answer_id"
+    t.bigint "dream_id"
+    t.index ["dream_id"], name: "index_dream_questions_on_dream_id"
     t.index ["question_id"], name: "index_dream_questions_on_question_id"
   end
 
@@ -45,8 +47,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_01_165021) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "dream_question_id"
-    t.index ["dream_question_id"], name: "index_dreams_on_dream_question_id"
     t.index ["user_id"], name: "index_dreams_on_user_id"
   end
 
@@ -62,8 +62,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_01_165021) do
     t.datetime "updated_at", null: false
     t.string "question_text"
     t.text "explanation_text"
-    t.boolean "correct"
-    t.text "answer"
+    t.boolean "original"
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
@@ -83,11 +82,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_01_165021) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "dream_questions"
   add_foreign_key "dream_labels", "dreams"
   add_foreign_key "dream_labels", "labels"
-  add_foreign_key "dream_questions", "answers"
+  add_foreign_key "dream_questions", "dreams"
   add_foreign_key "dream_questions", "questions"
-  add_foreign_key "dreams", "dream_questions"
   add_foreign_key "dreams", "users"
   add_foreign_key "questions", "users"
 end

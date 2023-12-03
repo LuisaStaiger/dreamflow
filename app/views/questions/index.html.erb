@@ -1,14 +1,23 @@
-<% @dream_questions.each do |dream_question| %>
-  <h1 style="color:white;"><%= dream_question.question.question_text %></h1>
-  <% if dream_question.answer %>
-      <h1>This where the update would happend</h1>
+<div class="container p-2">
 
-      <% else %>
-      <%= simple_form_for(Answer.new, :url => dream_questions_path, :method => :post) do |f| %>
+  <%= link_to 'Go to my dreams', dreams_path, class: "btn btn-light" %>
+
+  <% @questions.each do |question| %>
+    <h1 style="color:white;"><%= question.question_text %></h1>
+    <% answer = DreamQuestion.find_by(dream: @dream_of_today, question: question)&.answer %>
+
+    <% if answer.present? %>
+        <%= simple_form_for(answer) do |f| %>
           <%= f.input :user_answer %>
-          <%= f.submit  %>
-          <%= f.input :dream_question, as: :hidden, input_html: {value: dream_question.id } %>
-      <% end %>
-
-      <% end %>
+          <%= f.submit "Update answer", class: "btn btn-light" %>
+        <% end %>
+    <% else %>
+        <%= simple_form_for(Answer.new, url: dream_questions_path, method: :post) do |f| %>
+            <%= f.input :user_answer %>
+            <%= f.submit "Add answer to dream", class: "btn btn-light"  %>
+            <%= f.input :dream_id, as: :hidden, input_html: {value: @dream_of_today.id } %>
+            <%= f.input :question_id, as: :hidden, input_html: {value: question.id } %>
+        <% end %>
+    <% end %>
   <% end %>
+</div>

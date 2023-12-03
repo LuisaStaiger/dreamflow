@@ -11,7 +11,7 @@
       <div class="card-body">
         <h6 class="card-subtitle mb-2 text-muted"><%= dream.date %></h6>
         <p class="card-text">
-          <div><%= dream.content.length > 30 ? "#{dream.content[0...30]}..." : dream.content %></div>
+          <div><%= dream.content&.truncate(30) || dream.answers.map(&:user_answer).join(" ") %></div>
         </p>
       </div>
     </div>

@@ -15,6 +15,6 @@ Rails.application.routes.draw do
 
   resources :dreams
   resources :questions
-  resources :answers, only: :create
+  resources :answers, only: [:create, :update ]
   resources :dream_questions
 end

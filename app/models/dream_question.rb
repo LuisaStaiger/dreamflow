@@ -1,4 +1,5 @@
 class DreamQuestion < ApplicationRecord
-  belongs_to :answer, optional: true
+  has_one :answer
+  belongs_to :dream
   belongs_to :question
 end

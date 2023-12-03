@@ -8,7 +8,7 @@ class DreamsController < ApplicationController
     if params[:search]
       @dreams = Dream.where("content LIKE ?", "%#{params[:search]}%")
     else
-      @dreams = Dream.all
+      @dreams = Dream.where(user: current_user)
     end
   end
 

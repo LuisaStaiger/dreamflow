@@ -1,15 +1,13 @@
 class QuestionsController < ApplicationController
 
   def index
-    # @questions = Question.all
-    # @answer = Answer.new
-    @dream_questions = DreamQuestion.all
+    @dream_of_today = Dream.todays_dream(current_user: current_user)
+    @questions = Question.where(user: current_user).or(Question.where(original: true))
   end
 
 
   def new
     @question = Question.new
-
   end
 
   def create
