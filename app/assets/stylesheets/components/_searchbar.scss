@@ -1,0 +1,37 @@
+
+.box{
+  position: relative;
+}
+
+.input {
+  padding: 10px;
+  width: 40px;
+  height: 50px;
+  background: none;
+  border: 2px solid #360425;
+  border-radius: 50px;
+  box-sizing: border-box;
+  font-family: "Akkurat-Mono","Andale Mono",sans-serif;
+  font-size: 26px;
+  color: #7b7b7b;
+  outline: none;
+  transition: .10s;
+}
+.box:hover input{
+  width: 350px;
+  background: #341058;
+  border-radius: 10px;
+}
+.box i{
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translate(-50%,-50%);
+  font-size: 26px;
+  color: #191918;
+  transition: .2s;
+}
+.box:hover i{
+  opacity: 0;
+  z-index: -1;
+}
