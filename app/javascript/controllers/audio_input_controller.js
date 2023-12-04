@@ -1,18 +1,56 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="audio-input"
 export default class extends Controller {
-  static targets = ["transcribedText", "recordButton", "submitButton"];
+  static targets = ["transcribedText", "recordButton", "submitButton"]
 
   connect() {
-    console.log("Stimulus controller connected 👻");
-    console.log("textarema", this.transcribedTextTarget);
-    console.log("record btn", this.recordButtonTarget);
-    console.log("submit btn", this.submitButtonTarget);
-    // this.isRecording = false;
-    // this.mediaRecorder = null;
-    // this.audioChunks = [];
+    this.isRecording = false;
+    this.mediaRecorder = null;
+    this.audioChunks = [];
+  }
 
-    const savedText = localStorage.getItem('transcribedText');
+  toggleRecording() {
+    if (!this.isRecording) {
+      navigator.mediaDevices.getUserMedia({ audio: true })
+      .then(stream => {
+        this.mediaRecorder = new MediaRecorder(stream);
+        this.mediaRecorder.ondataavailable = e => this.audioChunks.push(e.data);
+        this.mediaRecorder.onstop = e => this.sendAudioToServer();
+        this.mediaRecorder.start();
+
+        this.isRecording = true;
+        this.recordButtonTarget.innerText = 'Stop Recording';
+        })
+        .catch(err => console.error("Error accessing microphone:", err));
+    } else {
+      console.log("👻")
+      this.mediaRecorder.stop();
+      this.isRecording = false;
+      this.recordButtonTarget.innerText = 'Start Recording';
+    }
+  }
+
+  sendAudioToServer() {
+    const audioBlob = new Blob(this.audioChunks);
+    const formData = new FormData();
+    formData.append('audio', audioBlob, 'recording.mp3');
+
+    const csrf = document.querySelector('meta[name=csrf-token]').content
+
+    fetch(('/dreams/new_audio'), {
+      method: 'POST',
+      headers: {
+        'X-CSRF-Token': csrf
+      },
+      body: formData
+    }).then(response => response.json())
+    .then(data => {
+      // console.log("data", data.transcription);
+      // console.log("transcript 🐝", this.transcribedTextTarget);
+      console.log(this.transcribedTextTargets);
+      this.transcribedTextTargets.forEach((transcribedTextTarget) => {
+        transcribedTextTarget.value = data.transcription;
+      })
+    }).catch(err => console.error("Error sending audio to server:", err));
   }
 }

@@ -1,15 +1,6 @@
 class DreamsController < ApplicationController
   before_action :set_dream, only: %i[show destroy edit update]
 
-  def new_audio
-    if params[:audio].present?
-      audio_path = params[:audio].tempfile.path
-      transcribt = OpenaiService.transcribe(audio_path)
-
-      render json: transcribt
-    end
-  end
-
   def index
     if params[:search]
       @dreams = Dream.where("content LIKE ?", "%#{params[:search]}%")
@@ -20,6 +11,15 @@ class DreamsController < ApplicationController
 
   def new
     @dream = Dream.new
+  end
+
+  def new_audio
+    @dream_of_today = Dream.todays_dream(current_user)
+    if params[:audio].present?
+      audio_path = params[:audio].tempfile.path
+      transcript = OpenaiService.transcribe(audio_path)
+      render json: { transcription: transcript}
+    end
   end
 
   def create
@@ -38,7 +38,7 @@ class DreamsController < ApplicationController
   def edit; end
 
   def update
-    if @dream.update(dream_params)
+    if @dream.update!(dream_params)
       redirect_to dream_path(@dream)
     else
       render :edit
