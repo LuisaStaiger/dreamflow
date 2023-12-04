@@ -1,0 +1,18 @@
+<% @questions_data.each do |question| %>
+  <% if question.user_id == current_user.id %>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted"><%= question.question_text %></h6>
+        <p class="card-text">
+          <div>
+            <%= question.explanation_text.truncate(200)%>
+          </div>
+        </p>
+        <% if question.correct == false %>
+          <%= link_to "Edit", edit_question_path(question), class: "card-link" %>
+          <%= link_to "Delete", question_path(question), method: :delete, data: { confirm: "Are you sure?" }, class: "card-link" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

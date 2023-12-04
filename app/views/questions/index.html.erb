@@ -1,20 +1,23 @@
-<% @questions_data.each do |question| %>
-  <% if question.user_id == current_user.id %>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h6 class="card-subtitle mb-2 text-muted"><%= question.question_text %></h6>
-        <p class="card-text">
-          <div>
-            <%= question.explanation_text.truncate(200)%>
-          </div>
-        </p>
-        <% if question.correct == false %>
-          <%= link_to "Edit", edit_question_path(question), class: "card-link" %>
-          <%= link_to "Delete", question_path(question), method: :delete, data: { confirm: "Are you sure?" }, class: "card-link" %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-<% end %>
+<div class="container p-2">
 
-<%= link_to "Add Question", new_question_path(@questions) %>
+  <%= link_to 'Go to my dreams', dreams_path, class: "btn btn-light" %>
+
+  <% @questions.each do |question| %>
+    <h1 style="color:white;"><%= question.question_text %></h1>
+    <% answer = DreamQuestion.find_by(dream: @dream_of_today, question: question)&.answer %>
+
+    <% if answer.present? %>
+        <%= simple_form_for(answer) do |f| %>
+          <%= f.input :user_answer %>
+          <%= f.submit "Update answer", class: "btn btn-light" %>
+        <% end %>
+    <% else %>
+        <%= simple_form_for(Answer.new, url: dream_questions_path, method: :post) do |f| %>
+            <%= f.input :user_answer %>
+            <%= f.submit "Add answer to dream", class: "btn btn-light"  %>
+            <%= f.input :dream_id, as: :hidden, input_html: {value: @dream_of_today.id } %>
+            <%= f.input :question_id, as: :hidden, input_html: {value: question.id } %>
+        <% end %>
+    <% end %>
+  <% end %>
+</div>

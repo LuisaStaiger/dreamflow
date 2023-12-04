@@ -1,10 +1,12 @@
 require 'date'
 
 puts "Cleaning Database 🧼"
+Answer.destroy_all
 Label.destroy_all
+DreamQuestion.destroy_all
 Dream.destroy_all
-User.destroy_all
 Question.destroy_all
+User.destroy_all
 
 puts "Creating Users 🙋🏼‍♀️ 🤷🏼‍♀️ 🤷🏽‍♀️ 💁🏻‍♀️"
 users = User.create([
@@ -85,68 +87,61 @@ puts "Creating Label"
 end
 
 puts "Creating Questions 💬 💬 💬"
-
 questions_data = [
   {
     question: "Did I dream last night?",
     explanation: "Start by simply asking yourself if you remember any dreams. This sets the intention to recall your dreams.",
-    correct: true
+    original: true
   },
   {
     question: "What emotions do I feel upon waking?",
     explanation: "Often, the residual emotions from a dream can help you remember details. Note any feelings you have upon waking.",
-    correct: true
+    original: true
   },
   {
     question: "Can I recall any specific images or scenes?",
     explanation: "Try to visualize any fragments of images or scenes that come to mind. Even small details can be a starting point.",
-    correct: true
-  },
-  { question: "Can I recall any specific images or scenes?",
-    explanation: "Try to visualize any fragments of images or scenes that come to mind. Even small details can be a starting point.",
-    correct: true
+    original: true
   },
   {
     question: "Are there any familiar faces or characters?",
     explanation: "Pay attention to people in your dreams. Recognizing familiar faces might trigger more memories.",
-    correct: true
+    original: true
   },
   {
     question: "Where was the dream set?",
     explanation: "Focus on the location of the dream. Was it indoors, outdoors, in a familiar place, or somewhere completely new?",
-    correct: true
+    original: true
   },
   {
     question: "What was the main theme or storyline?",
     explanation: "Reflect on the overall plot or theme of the dream. Were there any specific events or a sequence of actions?",
-    correct: true
+    original: true
   },
   {
     question: "Are there any symbols or recurring themes?",
     explanation: "Think about any symbolic elements or recurring themes that may be present in your dreams.",
-    correct: true
+    original: true
   },
   {
     question: "Was the dream in color or black and white?",
     explanation: "Pay attention to the visual aspects. Remembering the colors of your dream can sometimes trigger more details.",
-    correct: true
+    original: true
   },
   {
     question: "Did I have control or awareness in the dream?",
     explanation: "Consider your level of consciousness in the dream. Were you aware that you were dreaming, and did you have any control over the events?",
-    correct: true
+    original: true
   }
 ]
 
-users.each do |user|
-  questions_data.each do |data|
-    Question.create!(
-      question_text: data[:question],
-      explanation_text: data[:explanation],
-      correct: data[:correct],
-      user: user
-    )
-  end
+questions_data.each do |data|
+  Question.create!(
+    question_text: data[:question],
+    explanation_text: data[:explanation],
+    original: data[:original],
+    user: User.last
+  )
 end
 
 puts "Finished!"
