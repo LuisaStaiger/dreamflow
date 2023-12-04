@@ -6,16 +6,18 @@
     <% end %>
   </div>
 
-  <% @dreams.each do |dream| %>
-    <%=link_to dream_path(dream) do %>
-      <div class="card m-3 rounded" style="width: 18rem;">
-        <div class="card-body">
+  <div class="cards-container">
+    <% @dreams.each do |dream| %>
+      <%=link_to dream_path(dream) do %>
+        <div class="opacity-box m-3 p-3" style="width: 18rem; color: white;">
           <h6 class="card-subtitle mb-2"><%= dream.date %></h6>
-            <p class="card-text">
-              <div><%= dream.content&.truncate(30) || dream.answers.map(&:user_answer).join(" ") %></div>
-            </p>
+            <div class="card-body">
+              <p class="card-text">
+                <div><%= dream.content&.truncate(30) || dream.answers.map(&:user_answer).join(" ") %></div>
+              </p>
+            </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
