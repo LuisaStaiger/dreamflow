@@ -2,8 +2,12 @@
   <div class="wrap">
     <div class="box">
       <%= form_tag dreams_path, method: :get, class: "search" do %>
-        <%= text_field_tag :search, params[:search], class: "input", placeholder: "Search", onmouseout: "this.value = ''; this.blur();" %>
-        <i class="fas fa-search"></i>
+        <div class="d-flex justify-content-between align-items-center">
+          <%= text_field_tag :search, params[:search], class: "input", placeholder: " Search", onmouseout: "this.value = ''; this.blur();" do %>
+          <i class="fas fa-filter"></i>
+          <% end %>
+          <i class="fas fa-filter"></i>
+        </div>
         <% end %>
     </div>
   </div>
