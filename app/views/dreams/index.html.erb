@@ -18,7 +18,8 @@
     <% @dreams.each do |dream| %>
       <%=link_to dream_path(dream) do %>
         <div class="opacity-box m-3 p-3" style="width: 18rem; color: white;">
-          <h6 class="card-subtitle mb-2"><%= dream.date %></h6>
+          <h6 class="card-subtitle mb-2"><%= dream.date.strftime('%d.%m.%Y') %></h6>
+
             <div class="card-body">
               <p class="card-text">
                 <div><%= dream.content&.truncate(30) || dream.answers.map(&:user_answer).join(" ") %></div>
