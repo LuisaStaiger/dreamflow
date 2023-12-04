@@ -6,6 +6,7 @@
 .input {
   padding: 10px;
   width: 40px;
+  // max-width: 300px;
   height: 50px;
   background: none;
   border: 2px solid #050c2226;
@@ -16,22 +17,27 @@
   color: #7b7b7b;
   outline: none;
   transition: .10s;
+  background:url('magnifying-glass.svg') center/80% no-repeat;
 }
+
+
+
 .box:hover input{
-  width: 350px;
+  width: 300px;
   background: #3d2753;
   border-radius: 10px;
 }
 .box i{
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translate(-50%,-50%);
+  // position: absolute;
+  // top: 50%;
+  // right: 15px;
+  // transform: translate(-50%,-50%);
   font-size: 26px;
-  color: #191918;
+  color: #5b5b57;
   transition: .2s;
+  padding: 0 10px;
 }
 .box:hover i{
-  opacity: 0;
-  z-index: -1;
+  //opacity: 0;
+  //z-index: -1;
 }
