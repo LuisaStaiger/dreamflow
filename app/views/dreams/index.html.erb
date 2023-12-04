@@ -1,10 +1,18 @@
 <div class="container p-3">
   <div class="wrap">
-    <%= form_tag dreams_path, method: :get, class: "search" do %>
-      <%= text_field_tag :search, params[:search], class: "searchTerm", placeholder: "What are you looking for?" %>
-      <%= submit_tag "Search", class: "btn searchButton" %>
-    <% end %>
+    <div class="box">
+      <%= form_tag dreams_path, method: :get, class: "search" do %>
+        <%= text_field_tag :search, params[:search], class: "input", placeholder: "Search", onmouseout: "this.value = ''; this.blur();" %>
+        <i class="fas fa-search"></i>
+        <% end %>
+    </div>
   </div>
+<%# <div class="container p-3">
+  <div class="wrap">
+    <%= form_tag dreams_path, method: :get, class: "search" do %>
+      <%#= text_field_tag :search, params[:search], class: "searchTerm", placeholder: "What are you looking for?" %>
+      <%#= submit_tag "Search", class: "btn searchButton" %>
+    <%# end %>
 
   <div class="cards-container">
     <% @dreams.each do |dream| %>
