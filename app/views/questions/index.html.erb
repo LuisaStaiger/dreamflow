@@ -1,23 +1,41 @@
-<div class="container p-2">
+<div class="container p-2 text-white">
+  <%= link_to '↪ To my dreams', dreams_path, class: "btn button_one text-white" %>
 
-  <%= link_to 'Go to my dreams', dreams_path, class: "btn btn-light" %>
+  <div class="container opacity-box mt-4 p-4" style="display: grid !important;">
 
-  <% @questions.each do |question| %>
-    <h1 style="color:white;"><%= question.question_text %></h1>
-    <% answer = DreamQuestion.find_by(dream: @dream_of_today, question: question)&.answer %>
+    <% @questions.each do |question| %>
+      <div class="opacity-card">
+        <h3><%= question.question_text %></h3>
+      </div>
+        <% answer = DreamQuestion.find_by(dream: @dream_of_today, question: question)&.answer %>
 
-    <% if answer.present? %>
-        <%= simple_form_for(answer) do |f| %>
-          <%= f.input :user_answer %>
-          <%= f.submit "Update answer", class: "btn btn-light" %>
-        <% end %>
-    <% else %>
-        <%= simple_form_for(Answer.new, url: dream_questions_path, method: :post) do |f| %>
-            <%= f.input :user_answer %>
-            <%= f.submit "Add answer to dream", class: "btn btn-light"  %>
-            <%= f.input :dream_id, as: :hidden, input_html: {value: @dream_of_today.id } %>
-            <%= f.input :question_id, as: :hidden, input_html: {value: question.id } %>
+        <% if answer.present? %>
+            <%= simple_form_for(answer) do |f| %>
+              <div class="textarea-container">
+                <%= f.input :user_answer, label: "✏️",
+                input_html: {
+                  class: 'form-control transparent-textarea',
+                } %>
+              </div>
+              <div class="buttons-container">
+                <%= f.submit "Update answer", class: "btn button_one" %>
+              </div>
+            <% end %>
+        <% else %>
+            <%= simple_form_for(Answer.new, url: dream_questions_path, method: :post) do |f| %>
+              <div class="textarea-container">
+                <%= f.input :user_answer, label: "✏️",
+                input_html: {
+                  class: 'form-control transparent-textarea',
+                } %>
+              </div>
+              <div class="buttons-container">
+                <%= f.submit "Add answer to dream", class: "btn button_one"  %>
+              </div>
+                <%= f.input :dream_id, as: :hidden, input_html: {value: @dream_of_today.id } %>
+                <%= f.input :question_id, as: :hidden, input_html: {value: question.id } %>
+            <% end %>
         <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

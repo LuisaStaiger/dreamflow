@@ -1,16 +1,18 @@
 <div class="container p-3 text-white">
-  <div class="row">
     <%= link_to "↩", dreams_path, class: "btn button_one" %>
-  </div>
 
-  <div class="row">
+  <div class="row mt-4">
     <p>Label 1</p>
     <p>Label 2</p>
   </div>
 
-<div class="container dream_container p-3">
-  <h2><%= @dream.date %></h2>
-  <p><%= @dream.content %></p>
+<div class="container dream_container opacity-box p-3">
+  <h3><%= @dream.date %></h3>
+  <% if @dream.content %>
+    <p><%= @dream.content %></p>
+  <% else %>
+    <p>No content for this dream 🤷🏽‍♀️</p>
+  <% end %>
 
   <p>
     <%= link_to dream_path(@dream), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "card-link" do %>

@@ -36,3 +36,71 @@
   margin-bottom: 15px;
   margin-top: 15px;
 }
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.opacity-box {
+  position: relative;
+  border-radius: 20px;
+  display: flex;
+  width: 337px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.opacity-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 20%;
+  z-index: -1;
+}
+
+.opacity-card {
+  position: relative;
+  border-radius: 20px;
+  display: flex;
+  width: 317PX;
+  height: 81PX;
+  padding: 10px;
+}
+
+.opacity-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 20%;
+  z-index: -1;
+}
+
+.textarea-container {
+  width: 100%;
+}
+
+.transparent-textarea {
+  background: inherit;
+  border: none;
+}
+
+.date-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+}
