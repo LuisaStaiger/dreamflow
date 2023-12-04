@@ -1,7 +1,8 @@
 // Specific CSS for your home-page
 body {
   background: rgb(0,31,36);
-  background: linear-gradient(90deg, rgba(0,31,36,1) 0%, rgba(4,4,33,1) 15%, #d349eb 100%);
+  // background: linear-gradient(90deg, rgba(0,31,36,1) 0%, rgba(4,4,33,1) 15%, #d349eb 100%);
+  background: linear-gradient(90deg, rgba(0,31,36,1) 0%, rgba(4,4,33,1) 15%, #35043d 100%);
 }
 
 .title {
@@ -28,8 +29,10 @@ body {
   font-size: 40px;
   padding: 15px 27px;
   border: none;
-  border: 1px solid #575489;
+  border: 3px solid #575489;
   transition: background 200ms ease;
+  border-radius: 5rem;
+  background: linear-gradient(180deg, rgba(87, 84, 137, 0.25) 0%, rgba(87, 84, 137, 0.00) 100%);
 }
 
 .button i {
