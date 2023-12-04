@@ -30,7 +30,7 @@ end
 
 # Giulia's Dreams
 giulia_dreams = [
-  "I found myself lost in a labyrinthine sea, with waves whispering ancient tales.",
+  "I dreamt about my ex boyfriend",
   "In a dream, I was pregnant, feeling both joy and anxiety about the future.",
   "I revisited a cherished memory with my grandfather in his old fishing boat.",
   "I was being chased by a shadowy figure, an embodiment of my deepest fears.",

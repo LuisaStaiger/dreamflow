@@ -7,12 +7,10 @@
         <% end %>
     </div>
   </div>
-<%# <div class="container p-3">
-  <div class="wrap">
-    <%= form_tag dreams_path, method: :get, class: "search" do %>
-      <%#= text_field_tag :search, params[:search], class: "searchTerm", placeholder: "What are you looking for?" %>
-      <%#= submit_tag "Search", class: "btn searchButton" %>
-    <%# end %>
+
+<div>
+  <%= link_to "Labels", labels_path %>
+</div>
 
   <div class="cards-container">
     <% @dreams.each do |dream| %>
