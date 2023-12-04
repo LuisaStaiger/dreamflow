@@ -16,10 +16,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_03_115442) do
 
   create_table "answers", force: :cascade do |t|
     t.text "user_answer"
+    t.bigint "dream_id", null: false
+    t.bigint "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "dream_question_id"
+    t.index ["dream_id"], name: "index_answers_on_dream_id"
     t.index ["dream_question_id"], name: "index_answers_on_dream_question_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "dream_labels", force: :cascade do |t|
@@ -83,6 +87,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_03_115442) do
   end
 
   add_foreign_key "answers", "dream_questions"
+  add_foreign_key "answers", "dreams"
+  add_foreign_key "answers", "questions"
   add_foreign_key "dream_labels", "dreams"
   add_foreign_key "dream_labels", "labels"
   add_foreign_key "dream_questions", "dreams"
