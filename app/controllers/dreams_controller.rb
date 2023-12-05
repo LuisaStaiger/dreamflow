@@ -55,6 +55,10 @@ class DreamsController < ApplicationController
     redirect_to dreams_path, status: :see_other
   end
 
+  def analytics
+    @tag_counts = Label.joins(:dreams).group('labels.name').count
+  end
+
   private
 
   def generate_dream_labels(dream, label_ids)

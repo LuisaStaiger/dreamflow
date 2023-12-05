@@ -1,0 +1,9 @@
+
+
+<h2>Dream Analytics</h2>
+
+<canvas id="dreamPieChart" data-controller="dream-analytics"
+        data-dream-analytics-labels="<%= @tag_counts.keys.to_json.html_safe %>"
+        data-dream-analytics-data="<%= @tag_counts.values.to_json.html_safe %>"></canvas>
+
+<%= javascript_pack_tag 'dream_analytics_controller' %>
