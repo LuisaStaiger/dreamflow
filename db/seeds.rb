@@ -30,7 +30,7 @@ end
 
 # Giulia's Dreams
 giulia_dreams = [
-  "I found myself lost in a labyrinthine sea, with waves whispering ancient tales.",
+  "I dreamt about my ex boyfriend",
   "In a dream, I was pregnant, feeling both joy and anxiety about the future.",
   "I revisited a cherished memory with my grandfather in his old fishing boat.",
   "I was being chased by a shadowy figure, an embodiment of my deepest fears.",
@@ -81,10 +81,46 @@ create_dreams_for(users[4], adam_dreams)
 
 puts "Dreams Created Successfully 🌌"
 
-puts "Creating Label"
-["Nightmare", "Pregnancy", "Memory", "Ex", "Grandfather", "Sleep paralysis", "Sea", "Animal"].each do |label|
-  Label.create(name: label)
-end
+puts "Creating Labels 🏷️"
+Label.create(
+  name: "Nightmare",
+  description: "A nightmare is a disturbing dream associated with negative feelings, such as anxiety or fear that awakens you. Nightmares are common in children but can happen at any age."
+  )
+
+Label.create(
+  name: "Pregnancy",
+  description: "Pregnancy is the time during which one or more offspring develops (gestates) inside a woman's uterus (womb).",
+  )
+
+Label.create(
+  name: "Memory",
+  description: "Memory is the faculty of the mind by which data or information is encoded, stored, and retrieved when needed. It is the retention of information over time for the purpose of influencing future action.",
+)
+
+Label.create(
+  name: "Ex",
+  description: "This could be one that formerly held a specified position or place. especially : a former spouse or former partner in an intimate relationship."
+  )
+
+Label.create(
+  name: "Grandparents",
+  description: "Grandparents, individually known as grandmother and grandfather, are the parents of a person's father or mother – paternal or maternal."
+  )
+
+Label.create(
+  name: "Sleep paralysis",
+  description: "Sleep paralysis is when you cannot move or speak as you are waking up or falling asleep. It can be scary but it's harmless and most people will only get it once or twice in their life."
+  )
+
+Label.create(
+  name: "Sea",
+  description: "A sea is a large body of salty water. There are particular seas and the sea. The sea commonly refers to the ocean, the wider body of seawater."
+  )
+
+Label.create(
+  name: "Animal",
+  description:   "Similarly, in dreams, animals often symbolize emotions, expression and the response of your more 'wild,' uncivilized, yet natural self. This part of your nature can be at odds with the inner critic that coaxes you toward conformity."
+  )
 
 puts "Creating Questions 💬 💬 💬"
 questions_data = [
