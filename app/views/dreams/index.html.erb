@@ -22,7 +22,11 @@
     <% @dreams.each do |dream| %>
       <%=link_to dream_path(dream) do %>
         <div class="opacity-box m-3 p-3" style="width: 18rem; color: white;">
-          <h6 class="card-subtitle mb-2"><%= dream.date.strftime('%d.%m.%Y') %></h6>
+          <h6 class="card-subtitle mb-2">
+            <%= content_tag(:strong, dream.date.strftime('%d.%B.%Y'), class: 'front-weight-bold') %>
+          </h6>
+
+
 
             <div class="card-body">
               <p class="card-text">

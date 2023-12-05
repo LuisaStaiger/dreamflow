@@ -5,7 +5,7 @@
   </div>
 
 <div class="container dream_container opacity-box p-3">
-  <h3><%= @dream.date %></h3>
+  <h3><%= @dream.date.strftime("%d %B %Y") %></h3>
     <div class="tags">
       <% @dream.labels.each do |label| %>
         <div class="tag"><%= label.name %></div>
@@ -26,8 +26,11 @@
     <span style="margin: 0 5px;"></span>
 
   <%= link_to edit_dream_path(@dream), class: "card-link" do %>
-      <i class="fa-regular fa-pen-to-square"></i>
+      <i class="fa-regular fa-pen-to-square" style="color: #575489;"></i>
     <% end %>
   </p>
 </div>
 </div>
+
+
+
