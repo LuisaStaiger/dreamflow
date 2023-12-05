@@ -22,4 +22,6 @@ Rails.application.routes.draw do
       get :analytics
     end
   end
+
+  resources :labels
 end

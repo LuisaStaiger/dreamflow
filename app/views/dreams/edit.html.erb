@@ -1,9 +1,10 @@
-<div class="container p-3 text-whiteo">
+<div class="container p-3 text-white">
   <%= link_to "↩", dreams_path, class: "btn button_one" %>
 
   <h1><%="Edit your dream from #{@dream.date} 🌙"%></h1>
 
   <%= simple_form_for(@dream) do |f| %>
+  <%= f.association :labels, as: :check_boxes %>
   <%= f.input :content %>
   <%= f.submit %>
   <% end %>
