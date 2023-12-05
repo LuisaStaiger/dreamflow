@@ -12,6 +12,12 @@
     </div>
   </div>
 
+  <div>
+    <%# Button to go to labels %>
+    <%= link_to "Labels", labels_path %>
+  </div>
+
+
   <div class="cards-container">
     <% @dreams.each do |dream| %>
       <%=link_to dream_path(dream) do %>
@@ -24,7 +30,7 @@
 
             <div class="card-body">
               <p class="card-text">
-                <div><%= dream.content %></div>
+                <div><%= dream.content.truncate(30)%></div>
               </p>
             </div>
         </div>
