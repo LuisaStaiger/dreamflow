@@ -13,9 +13,8 @@
   <div class="textarea-container">
 
     <%= f.label :content,'My Dream', style: 'margin-left: 15px;' %>
-    <%= f.text_area :content,
-      class: 'form-control transparent-textarea',
-      style: 'height: 493px',
+    <%= f.text_area :content, class: 'form-control transparent-textarea dream-placeholder',
+      style: 'min-height: 250px, background-color: transparent',
       placeholder: 'Describe your dream...' %>
   </div>
 
