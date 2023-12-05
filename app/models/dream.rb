@@ -2,6 +2,8 @@ class Dream < ApplicationRecord
   belongs_to :user
   has_many :dream_questions
   has_many :answers, through: :dream_questions
+  has_many :dream_labels
+  has_many :labels, through: :dream_labels
 
   default_scope { order(created_at: :desc) }
 

@@ -26,6 +26,7 @@ class DreamsController < ApplicationController
     @dream = Dream.new(dream_params)
     @dream.user = current_user
     @dream.date = Date.today
+    generate_dream_labels(@dream, params[:dream][:label_ids])
     if @dream.save!
       redirect_to dreams_path, notice: 'Your dream was saved!💭'
     else
@@ -38,6 +39,10 @@ class DreamsController < ApplicationController
   def edit; end
 
   def update
+    # Destaoy all dream_labels
+    @dream.dream_labels.destroy_all
+    # Regenerate all the dream_labels
+    generate_dream_labels(@dream, params[:dream][:label_ids])
     if @dream.update!(dream_params)
       redirect_to dream_path(@dream)
     else
@@ -50,13 +55,25 @@ class DreamsController < ApplicationController
     redirect_to dreams_path, status: :see_other
   end
 
+  def analytics
+    @tag_counts = Label.joins(:dreams).group('labels.name').count
+  end
+
   private
+
+  def generate_dream_labels(dream, label_ids)
+    label_ids.each do |label_id|
+      unless label_id.empty?
+        DreamLabel.create(label: Label.find(label_id), dream: dream)
+      end
+    end
+  end
 
   def set_dream
     @dream = Dream.find(params[:id])
   end
 
   def dream_params
-    params.require(:dream).permit(:content)
+    params.require(:dream).permit(:content, :label_ids)
   end
 end
