@@ -1,3 +1,8 @@
+.container {
+  padding: 15px;
+  color: white;
+}
+
 .new_container {
   position: fixed;
   top: 50%;
@@ -31,10 +36,9 @@
 }
 
 .buttons-container {
-  display: flex;
+// ?display: flex;
   gap: 10px;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  padding: 15px;
 }
 
 .cards-container {
@@ -45,12 +49,29 @@
 
 .opacity-box {
   position: relative;
-  border-radius: 20px;
-  display: flex;
+  margin-top: 15px;
+  // border-radius: 20px;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  // flex-shrink: 0;
+}
+
+.textarea-container {
+  margin: 15px;
+  // display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
+}
+
+.textarea-container label {
+  margin-bottom: 5px; /* Adjust as needed for spacing */
+}
+
+.textarea-container textarea {
+  height: 250px;
+  color: #b5aebe;
+  /* Add any other styles as needed */
 }
 
 .opacity-box::before {
@@ -88,18 +109,18 @@
   z-index: -1;
 }
 
-.textarea-container {
-  width: 100%;
-}
-
 .transparent-textarea {
   background: inherit;
   border: none;
 }
 
 .date-container {
-  position: absolute;
-  top: 0;
+  // position: absolute;
+  padding: 15px;
   left: 0;
-  margin: 10px;
-}
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+ }
