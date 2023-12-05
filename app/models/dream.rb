@@ -11,6 +11,15 @@ class Dream < ApplicationRecord
   end
 
   def content
-    (super + answers.map(&:user_answer).join(" "))
+    (super || "") + answers.map(&:user_answer).join(" ")
   end
 end
+
+class ApplicationRecord
+  def content
+    # Provide a default implementation if necessary
+    ""
+  end
+end
+
+
