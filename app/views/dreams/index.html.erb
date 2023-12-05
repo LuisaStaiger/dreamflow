@@ -12,12 +12,6 @@
     </div>
   </div>
 
-  <div>
-    <%# Button to go to labels %>
-    <%= link_to "Labels", labels_path %>
-  </div>
-
-
   <div class="cards-container">
     <% @dreams.each do |dream| %>
       <%=link_to dream_path(dream) do %>

@@ -1,25 +1,46 @@
 import { Controller } from "@hotwired/stimulus"
-import Chart from "chart.js/auto";
+// import { Chart } from "chart.js";
+// import * as Chartjs from "chart.js";
+
+import { Chart, registerables } from "chart.js";
+Chart.register(...registerables);
 
 export default class extends Controller {
+  static values = {
+    data: Array,
+    labels: Array
+  }
+
   connect() {
-    this.renderChart();
+    console.log(this.dataValue);
+    console.log(this.labelsValue);
+    this.renderChart()
   }
 
   renderChart() {
-    const chartCanvas = this.element.querySelector("#dreamPieChart");
-    const labels = JSON.parse(this.data.get("labels"));
-    const data = JSON.parse(this.data.get("data"));
-
-    new Chart(chartCanvas, {
-      type: "pie",
-      data: {
-        labels: labels,
-        datasets: [{
-          data: data,
-          backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4CAF50'],
-        }],
-      },
-    });
+    new Chart(
+      this.element,
+      {
+        type: 'doughnut',
+        data: {
+          labels: this.labelsValue,
+          datasets: [
+            {
+              label: 'Dreams Statistic',
+              data: this.dataValue,
+              backgroundColor: [
+                'rgb(216, 212, 242)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+              ],
+              hoverOffset: 4
+            }
+          ]
+        },
+        options: {
+          responsive: true
+        }
+      }
+    );
   }
 }

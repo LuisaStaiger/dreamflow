@@ -56,7 +56,9 @@ class DreamsController < ApplicationController
   end
 
   def analytics
-    @tag_counts = Label.joins(:dreams).group('labels.name').count
+    @label_counts = Label.joins(:dreams).group('labels.name').count
+    @dream_counts = Dream.where(user: current_user).size 
+
   end
 
   private
