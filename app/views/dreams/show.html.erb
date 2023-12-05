@@ -2,17 +2,20 @@
     <%= link_to "↩", dreams_path, class: "btn button_one" %>
 
   <div class="row mt-4">
-    <p>Label 1</p>
-    <p>Label 2</p>
   </div>
 
 <div class="container dream_container opacity-box p-3">
   <h3><%= @dream.date %></h3>
-  <% if @dream.content %>
-    <p><%= @dream.content %></p>
-  <% else %>
-    <p>No content for this dream 🤷🏽‍♀️</p>
-  <% end %>
+    <div class="tags">
+      <% @dream.labels.each do |label| %>
+        <div class="tag"><%= label.name %></div>
+      <% end %>
+    </div>
+    <% if @dream.content %>
+      <p><%= @dream.content %></p>
+    <% else %>
+      <p>No content for this dream 🤷🏽‍♀️</p>
+    <% end %>
 
   <p>
     <%= link_to dream_path(@dream), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "card-link" do %>
