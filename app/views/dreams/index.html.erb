@@ -2,24 +2,31 @@
   <div class="wrap">
     <div class="box">
       <%= form_tag dreams_path, method: :get, class: "search" do %>
-        <%= text_field_tag :search, params[:search], class: "input", placeholder: "Search", onmouseout: "this.value = ''; this.blur();" %>
-        <i class="fas fa-search"></i>
+        <div class="d-flex justify-content-between align-items-center">
+          <%= text_field_tag :search, params[:search], class: "input", placeholder: " Search", onmouseout: "this.value = ''; this.blur();" do %>
+          <i class="fas fa-filter"></i>
+          <% end %>
+          <i class="fas fa-filter"></i>
+        </div>
         <% end %>
     </div>
   </div>
 
-<div>
-  <%= link_to "Labels", labels_path %>
-</div>
+  <div>
+    <%# Button to go to labels %>
+    <%= link_to "Labels", labels_path %>
+  </div>
+
 
   <div class="cards-container">
     <% @dreams.each do |dream| %>
       <%=link_to dream_path(dream) do %>
         <div class="opacity-box m-3 p-3" style="width: 18rem; color: white;">
-          <h6 class="card-subtitle mb-2"><%= dream.date %></h6>
+          <h6 class="card-subtitle mb-2"><%= dream.date.strftime('%d.%m.%Y') %></h6>
+
             <div class="card-body">
               <p class="card-text">
-                <div><%= dream.content&.truncate(30) || dream.answers.map(&:user_answer).join(" ") %></div>
+                <div><%= dream.content %></div>
               </p>
             </div>
         </div>

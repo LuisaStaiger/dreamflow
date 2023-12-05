@@ -1,29 +1,38 @@
 <div class="container p-3 text-white" data-controller="audio-input">
   <%= link_to "↩", root_path, class: "btn button_one text-white" %>
 
-  <div class="container m-4 opacity-box">
-    <h2>Record your dreams 🎙️</h2>
-    <textarea
-      class="transcribed-text"
-      style="width: 100%; height: 100px;"
-      id="transcribedText"
-      data-audio-input-target="transcribedText"
-      placeholder="Still a little tired?
-                  No worries, we got you.
-                  Just press the button and record your dream. We take care of the rest 🌙">
-    </textarea>
+    <div class="container m-4 opacity-box">
+      <h2>Record your dreams 🎙️</h2>
+        <%= form_with url: create_new_audio_path, local: true, multipart: true, method: :post do |form| %>
+          <%= form.hidden_field :audio, data: { audio_input_target: "input" } %>
+          <%#= form.submit "Upload and Transcribe", class: "btn button_one" %>
+        <% end %>
 
+        <textarea
+          class="transcribed-text"
+          style="width: 100%; height: 100px;"
+          id="transcribedText"
+          data-audio-input-target="transcribedText"
+          placeholder="Your transcribed text will appear here...">
+        </textarea>
+
+
+        <div class="d-flex justify-content-end">
+          <%= link_to '#', class: "btn button_one violet button--mic",
+            data: {
+              action: "click->audio-input#toggleRecording",
+              audio_input_target: "recordButton" } do %>
+          <i class="fa fa-microphone record-icon"></i>
+          <% end %>
+        </div>
+
+    </div>
 
     <div class="d-flex justify-content-end">
-      <%= link_to root_path, class: "btn button_one violet button--mic", data: { action: "click->audio-input#toggleRecording", audio_input_target: "recordButton" } do %>
-        <i class="fa fa-microphone record-icon"></i>
+      <%= simple_form_for @dream_of_today do |f| %>
+        <%= f.input :content, as: :hidden, input_html: { data: { audio_input_target: "transcribedText" } } %>
+        <%= f.submit "Create dream 💭", class: "btn button_one" %>
       <% end %>
-    </div>
-
-    </div>
-
-    <div class="d-flex justify-content-end">
-      <%= link_to 'Create dream 💭', dreams_path, class: "btn button_one", data: { action: "click->audio-input#submitReviewedText", audio_input_target: "submitButton"} %>
     </div>
   </div>
 </div>

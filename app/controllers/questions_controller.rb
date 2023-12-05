@@ -1,10 +1,9 @@
 class QuestionsController < ApplicationController
 
   def index
-    @dream_of_today = Dream.todays_dream(current_user: current_user)
+    @dream_of_today = Dream.todays_dream(current_user)
     @questions = Question.where(user: current_user).or(Question.where(original: true))
   end
-
 
   def new
     @question = Question.new
@@ -21,7 +20,6 @@ class QuestionsController < ApplicationController
       render :new
     end
   end
-
 
   def show
     set_question

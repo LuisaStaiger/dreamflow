@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   # root "posts#index"
   # get "dreams/new", to: "dreams#new"
 
-  get "dreams/new_audio", to: "dreams#new_audio", as: :audio
+  get "dreams/new_audio", to: "dreams#new_audio", as: :create_new_audio
+  post "dreams/new_audio", to: "dreams#new_audio", as: :new_audio_dreams
 
   resources :dreams
   resources :questions

@@ -22,22 +22,21 @@ body {
 }
 
 .button {
-  border-radius: 50px;
+  border-radius: 50%;
   background: transparent;
   text-decoration: none;
   color: #575489;
   font-size: 40px;
-  padding: 15px 27px;
-  border: none;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 15px 26px; */
   border: 3px solid #575489;
   transition: background 200ms ease;
-  border-radius: 5rem;
+  overflow: hidden;
   background: linear-gradient(180deg, rgba(87, 84, 137, 0.25) 0%, rgba(87, 84, 137, 0.00) 100%);
-}
-
-.button i {
-  /* Adjust icon styles if needed */
-  margin-right: 5px;
 }
 
 .fa-solid {
