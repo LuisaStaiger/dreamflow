@@ -3,9 +3,9 @@
 
     <div class="container m-4 opacity-box">
       <h2>Record your dreams 🎙️</h2>
-        <%= form_with url: new_audio_dreams_path, local: true, multipart: true, method: :post do |form| %>
-          <%= form.file_field :audio, data: { audio_input_target: "input" } %>
-          <%= form.submit "Upload and Transcribe", class: "btn button_one" %>
+        <%= form_with url: create_new_audio_path, local: true, multipart: true, method: :post do |form| %>
+          <%= form.hidden_field :audio, data: { audio_input_target: "input" } %>
+          <%#= form.submit "Upload and Transcribe", class: "btn button_one" %>
         <% end %>
 
         <textarea
@@ -18,21 +18,21 @@
 
 
         <div class="d-flex justify-content-end">
-          <%= link_to root_path, class: "btn button_one violet button--mic",
+          <%= link_to '#', class: "btn button_one violet button--mic",
             data: {
               action: "click->audio-input#toggleRecording",
               audio_input_target: "recordButton" } do %>
           <i class="fa fa-microphone record-icon"></i>
           <% end %>
-        </div> 
+        </div>
 
     </div>
 
     <div class="d-flex justify-content-end">
-      <%= link_to 'Create dream 💭', dreams_path, class: "btn button_one",
-      data: {
-        action: "click->audio-input#submitReviewedText",
-        audio_input_target: "submitButton"} %>
+      <%= simple_form_for @dream_of_today do |f| %>
+        <%= f.input :content, as: :hidden, input_html: { data: { audio_input_target: "transcribedText" } } %>
+        <%= f.submit "Create dream 💭", class: "btn button_one" %>
+      <% end %>
     </div>
   </div>
 </div>
