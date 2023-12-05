@@ -1,0 +1,22 @@
+.analytics-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#dream-chart {
+  width: 300px;
+}
+
+#dreamPieChart {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.dream-counts {
+  font-size: 60pt;
+  color: white;
+  margin: 20px;
+}

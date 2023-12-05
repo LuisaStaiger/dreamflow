@@ -30,11 +30,11 @@ end
 
 # Giulia's Dreams
 giulia_dreams = [
-  "I dreamt about my ex boyfriend",
-  "In a dream, I was pregnant, feeling both joy and anxiety about the future.",
-  "I revisited a cherished memory with my grandfather in his old fishing boat.",
-  "I was being chased by a shadowy figure, an embodiment of my deepest fears.",
-  "My pet dog spoke to me, revealing secrets of a hidden animal kingdom."
+  "I dreamt I was dating Bad Bunny...what a dream",
+  "I dreamt a childhood memory. I was at the beach in my grandparents house, the sky was grey and I was feeling anxious",
+  "I dreamt I was smoking again!! but after a couple of cigarette puffs I was already regretting my choice. This dream was so realistic. ",
+  "I dreamt I was kicked out from Le Wagon because I forgot to do my flashcard and Pedro was furious at me",
+  "I dreamt about coding, again"
 ]
 
 # Luisa's Dreams
@@ -179,5 +179,8 @@ questions_data.each do |data|
     user: User.last
   )
 end
+
+DreamLabel.create(dream: Dream.last, label: Label.last)
+DreamLabel.create(dream: Dream.last, label: Label.first)
 
 puts "Finished!"
