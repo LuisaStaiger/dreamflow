@@ -1,4 +1,4 @@
-<div class="container p-3">
+<div class="container">
   <div class="wrap">
     <div class="box">
       <%= form_tag dreams_path, method: :get, class: "search" do %>
@@ -21,20 +21,16 @@
   <div class="cards-container">
     <% @dreams.each do |dream| %>
       <%=link_to dream_path(dream) do %>
-        <div class="opacity-box m-3 p-3" style="width: 18rem; color: white;">
-          <h6 class="card-subtitle mb-2">
-            <%= content_tag(:strong, dream.date.strftime('%d.%B.%Y'), class: 'front-weight-bold') %>
-          </h6>
-
-
-
-            <div class="card-body">
-              <p class="card-text">
-                <div><%= dream.content %></div>
-              </p>
-            </div>
+        <div class="opacity-box">
+          <div class="date-container-index-cards">
+            <h5><%= content_tag(:strong, dream.date.strftime('%d.%B.%Y')) %></h5>
+          </div>
+          <div class="textarea-container form-control-index transparent-textarea">
+              <%= dream.content.truncate(60)%>
+          </div>
         </div>
       <% end %>
     <% end %>
+   </div>
   </div>
 </div>

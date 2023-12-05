@@ -1,3 +1,8 @@
+.container {
+  padding: 15px;
+  color: white;
+}
+
 .new_container {
   position: fixed;
   top: 50%;
@@ -31,26 +36,71 @@
 }
 
 .buttons-container {
-  display: flex;
+// ?display: flex;
   gap: 10px;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  padding: 15px;
 }
 
 .cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: center;
+  flex-direction: column;
 }
 
 .opacity-box {
   position: relative;
-  border-radius: 20px;
-  display: flex;
+  margin-top: 15px;
+  // border-radius: 20px;
+  // display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
+  // justify-content: center;
+  // align-items: center;
+  // flex-shrink: 0;
+}
+
+.textarea-container {
+  margin: 0px;
+  // display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  padding-top: 0;
+}
+
+.form-control-index {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: white;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--bs-body-bg);
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  color: white !important;
+  background-color: transparent;
+  border-color: transparent;
+  outline: 0;
+  box-shadow:none;
+}
+
+.textarea-container label {
+  margin-bottom: 5px; /* Adjust as needed for spacing */
+}
+
+.textarea-container textarea {
+  height: 250px;
+  color: #b5aebe;
+  /* Add any other styles as needed */
 }
 
 .opacity-box::before {
@@ -88,18 +138,33 @@
   z-index: -1;
 }
 
-.textarea-container {
-  width: 100%;
-}
-
 .transparent-textarea {
   background: inherit;
   border: none;
 }
 
-.date-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 10px;
+.dream-placeholder::placeholder {
+  color: grey;
 }
+
+.date-container {
+  // position: absolute;
+  padding: 15px;
+  left: 0;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+ }
+
+ .date-container-index-cards {
+  // position: absolute;
+  padding: 10px;
+  left: 0;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+ }
