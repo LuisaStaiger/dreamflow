@@ -16,11 +16,14 @@
     <% @dreams.each do |dream| %>
       <%=link_to dream_path(dream) do %>
         <div class="opacity-box">
+
           <div class="date-container-index-cards">
-            <h5><%= content_tag(:strong, dream.date.strftime('%d.%B.%Y')) %></h5>
+            <h4 style="display: inline; font-weight: normal;"><%= dream.date.strftime('%d.%m.%Y') %></h4>
+            <h4 style="display: inline-block; margin-left: 10px;"><%= dream.title.delete('"') %></h4>
           </div>
+
           <div class="textarea-container form-control-index transparent-textarea">
-              <%= dream.content.truncate(60)%>
+              <%= dream.content.truncate(300)%>
           </div>
         </div>
       <% end %>

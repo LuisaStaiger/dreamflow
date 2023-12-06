@@ -3,7 +3,12 @@
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  margin: 90px 4px 26px 5px;
+}
 
+h1{
+  color: white;
+  font-weight: bold;
 }
 
 #dream-chart {
@@ -15,8 +20,8 @@
   margin-bottom: 40px;
 }
 
-.dream-counts {
+.dream-count {
   font-size: 60pt;
-  color: white;
   margin: 20px;
+  color:white
 }

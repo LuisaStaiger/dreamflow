@@ -1,3 +1,4 @@
+// container for each page
 .container {
   padding: 15px;
   color: white;
@@ -51,9 +52,13 @@
 .opacity-box {
   position: relative;
   margin-top: 15px;
+  min-height: 200px;
+  max-height: 400px;
+  overflow: hidden;
   // border-radius: 20px;
   // display: flex;
   flex-direction: column;
+  padding-bottom: 15px;
   // justify-content: center;
   // align-items: center;
   // flex-shrink: 0;
@@ -63,26 +68,29 @@
   margin: 0px;
   // display: flex;
   flex-direction: column;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
   padding-top: 0;
 }
 
 .form-control-index {
+  overflow-y: auto;
+  // max-height: 700px;
   display: block;
   width: 100%;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
+  padding-left: 15px;
+  padding-right: 15px;
+  // font-size: 1rem;
+  // font-weight: 400;
+  // line-height: 1.5;
   color: white;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: var(--bs-body-bg);
-  background-clip: padding-box;
-  border: var(--bs-border-width) solid var(--bs-border-color);
-  border-radius: var(--bs-border-radius);
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  // -webkit-appearance: none;
+  // -moz-appearance: none;
+  // appearance: none;
+  // background-color: var(--bs-body-bg);
+  // background-clip: padding-box;
+  // border: var(--bs-border-width) solid var(--bs-border-color);
+  // border-radius: var(--bs-border-radius);
+  // transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .form-control:focus {
@@ -141,6 +149,7 @@
 .transparent-textarea {
   background: inherit;
   border: none;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .dream-placeholder::placeholder {
