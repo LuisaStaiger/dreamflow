@@ -32,11 +32,12 @@ puts "Creating Dreams 💭 💭 💭"
 
 # Giulia's Dreams
 giulia_dreams = [
-  "I dreamt I was dating Bad Bunny...what a dream",
+  "I dreamt I was dating Bad Bunny and while I was doing perreo perreo he proposed to me.",
   "I dreamt a childhood memory. I was at the beach in my grandparents house, the sky was grey and I was feeling anxious",
   "I dreamt I was smoking again!! but after a couple of cigarette puffs I was already regretting my choice. This dream was so realistic. ",
   "I dreamt I was kicked out from Le Wagon because I forgot to do my flashcard and Pedro was furious at me",
-  "I dreamt about coding, again"
+  "I dreamt about coding, again",
+  "Adam was eating spaghetti during the lecture while Pedro was dancing brazilian samba."
 ]
 
 # Luisa's Dreams
@@ -103,7 +104,7 @@ Label.create(
   )
 
 Label.create(
-  name: "Pregnancy",
+  name: "Bad Bunny",
   description: "Pregnancy is the time during which one or more offspring develops (gestates) inside a woman's uterus (womb).",
   )
 
@@ -113,7 +114,7 @@ Label.create(
 )
 
 Label.create(
-  name: "Ex",
+  name: "Anmeldung",
   description: "This could be one that formerly held a specified position or place. especially : a former spouse or former partner in an intimate relationship."
   )
 
@@ -128,19 +129,29 @@ Label.create(
   )
 
 Label.create(
-  name: "Sea",
+  name: "Spaghetti",
   description: "A sea is a large body of salty water. There are particular seas and the sea. The sea commonly refers to the ocean, the wider body of seawater."
   )
 
 Label.create(
-  name: "Animal",
+  name: "Adam",
   description: "Similarly, in dreams, animals often symbolize emotions, expression and the response of your more 'wild,' uncivilized, yet natural self. This part of your nature can be at odds with the inner critic that coaxes you toward conformity."
   )
+
+Label.create(
+  name: "Coding",
+  description: "Similarly, in dreams, animals often symbolize emotions, expression and the response of your more 'wild,' uncivilized, yet natural self. This part of your nature can be at odds with the inner critic that coaxes you toward conformity."
+    )
+
+Label.create(
+    name: "Naked",
+    description: "Similarly, in dreams, animals often symbolize emotions, expression and the response of your more 'wild,' uncivilized, yet natural self. This part of your nature can be at odds with the inner critic that coaxes you toward conformity."
+      )
 
 puts "Creating Questions 💬 💬 💬"
 questions_data = [
   {
-    question: "Did I dream last night?",
+    question: "What's the first thing I remember about my dream?",
     explanation: "Start by simply asking yourself if you remember any dreams. This sets the intention to recall your dreams.",
     original: true
   },

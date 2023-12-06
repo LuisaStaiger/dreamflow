@@ -1,14 +1,14 @@
 <div class="container p-2 text-white">
-<div class="d-flex justify-content-between">
-  <%= link_to "↩", root_path, class: "btn button_one text-white" %>
-  <%= link_to 'Generate Dream', dreams_path, class: "btn button_one text-white" %>
-</div>
+  <div class="d-flex justify-content-between">
+    <%= link_to "↩", root_path, class: "btn button_one text-white" %>
+    <%= link_to 'Generate Dream', dreams_path, class: "btn button_one text-white" %>
+  </div>
 
   <div class="container opacity-box mt-4 p-4" style="display: grid !important;">
 
     <% @questions.each do |question| %>
-      <div class="opacity-card">
-        <h3><%= question.question_text %></h3>
+      <div class="question-opacity-card">
+        <%= question.question_text %>
       </div>
 
         <% answer = DreamQuestion.find_by(dream: @dream_of_today, question: question)&.answer %>
