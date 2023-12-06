@@ -1,18 +1,28 @@
-<div class="container">
+<div class="container p-3 text-white">
   <%= link_to "↩", root_path, class: "btn button_one text-white" %>
-  <div class="opacity-box">
-  <div class="date-container">
-    <h5><%= Date.today.strftime('%d.%m.%Y') %></h5>
+  <div class="container opacity-box mt-4 p-1">
+    <div class="date-container">
+      <h5><%= Date.today.strftime('%d.%m.%Y') %></h5>
+    </div>
+      <%= simple_form_for(@dream, class: "position") do |f| %>
+        <div class="textarea-container mt-5">
+          <%= f.association :labels,
+          as: :check_boxes,
+          legend_tag: false,
+          input_html: { class: "tag-selector" },
+          item_wrapper_class: 'tag-item' %>
+          <%= f.input :content,
+          input_html: {
+            class: 'form-control transparent-textarea',
+            style: 'height: 250px;'
+          },
+          label: "My dream",
+          placeholder:
+            "Describe your dream... Did you soar high above the clouds or discover a hidden underwater city? Let your imagination run wild!" %>
+        </div>
+        <div class="buttons-container">
+        <%= f.submit "✔", class: "btn button_one" %>
+      </div>
+      <% end %>
   </div>
-  <%= simple_form_for(@dream) do |f| %>
-    <div class="textarea-container">
-      <%= f.label :content,'My Dream', style: 'margin-left: 15px;' %>
-      <%= f.text_area :content, class: 'form-control transparent-textarea dream-placeholder',
-        style: 'min-height: 250px, background-color: transparent',
-        placeholder: 'Describe your dream...' %>
-    </div>
-    <div class="buttons-container">
-      <%= f.submit "✔", class: "btn button_one" %>
-    </div>
-  <% end %>
 </div>
