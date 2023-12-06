@@ -1,18 +1,32 @@
 <div class="container">
   <%= link_to "↩", root_path, class: "btn button_one text-white" %>
   <div class="opacity-box">
-  <div class="date-container">
-    <h5><%= Date.today.strftime('%d.%m.%Y') %></h5>
+    <div class="date-container">
+      <h5><%= Date.today.strftime('%d.%m.%Y') %></h5>
+    </div>
+
+    <%= simple_form_for(@dream) do |f| %>
+      <div class="textarea-container">
+        <%= f.label :content, 'My Dream', style: 'margin-left: 15px;' %>
+        <%= f.text_area :content, class: 'form-control transparent-textarea dream-placeholder auto-grow',
+          style: 'min-height: 250px; background-color: transparent',
+          placeholder: 'Describe your dream...' %>
+      </div>
+
+      <div class="buttons-container">
+        <%= f.submit "✔", class: "btn button_one" %>
+      </div>
+    <% end %>
+
+    <script>
+      document.addEventListener('input', function(event) {
+        if (event.target.classList.contains('auto-grow')) {
+          event.target.style.height = 'auto';
+          event.target.style.height = (event.target.scrollHeight) + 'px';
+        }
+      });
+    </script>
+
   </div>
-  <%= simple_form_for(@dream) do |f| %>
-    <div class="textarea-container">
-      <%= f.label :content,'My Dream', style: 'margin-left: 15px;' %>
-      <%= f.text_area :content, class: 'form-control transparent-textarea dream-placeholder',
-        style: 'min-height: 250px, background-color: transparent',
-        placeholder: 'Describe your dream...' %>
-    </div>
-    <div class="buttons-container">
-      <%= f.submit "✔", class: "btn button_one" %>
-    </div>
-  <% end %>
 </div>
+
