@@ -15,13 +15,18 @@
   <div class="cards-container">
     <% @dreams.each do |dream| %>
       <%=link_to dream_path(dream) do %>
-        <div class="opacity-box">
 
-          <div class="date-container-index-cards">
-            <h4 style="display: inline; font-weight: normal;"><%= dream.date.strftime('%d.%m.%Y') %></h4>
-            <h4 style="display: inline-block; margin-left: 10px;"><%= dream.title.delete('"') %></h4>
+        <div class="index-opacity-box">
+
+          <div class="index-date-container">
+            <%= dream.date.strftime('%d.%m.%Y') %>
+            </div>
+          <div class="index-promt-container">
+            <%= dream.title.delete('"') %>
+            </div>
+          <div class="index-dream-content-container">
+              <%= dream.content.truncate(300)%>
           </div>
-
           <div class="tags">
             <% dream.labels.each do |label| %>
               <div class="tag"><%= label.name %></div>
@@ -29,9 +34,7 @@
           </div>
 
 
-          <div class="textarea-container form-control-index transparent-textarea">
-              <%= dream.content.truncate(300)%>
-          </div>
+
         </div>
       <% end %>
     <% end %>
