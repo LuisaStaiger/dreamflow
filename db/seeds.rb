@@ -10,11 +10,11 @@ User.destroy_all
 
 puts "Creating Users 🙋🏼‍♀️ 🤷🏼‍♀️ 🤷🏽‍♀️ 💁🏻‍♀️"
 users = User.create([
-  { username: "Giulia", email: "giulia@test.com", password: "123456" },
-  { username: "Luisa", email: "luisa@test.com", password: "123456" },
-  { username: "Rebeca", email: "rebeca@test.com", password: "123456" },
-  { username: "Emma", email: "emma@test.com", password: "123456" },
-  { username: "Adam", email: "adam@test.com", password: "123456" }
+  { username: "Giulia", email: "giulia@test.com", password: "123456", current_goal: "Sleep more", current_dreams: "Great", current_influences: "Stressful Bootcamp" },
+  { username: "Luisa", email: "luisa@test.com", password: "123456", current_goal: "Sleep better", current_dreams: "Positive", current_influences: "Stressful Bootcamp" },
+  { username: "Rebeca", email: "rebeca@test.com", password: "123456", current_goal: "Sleep more", current_dreams: "Confusing", current_influences: "Stressful Bootcamp" },
+  { username: "Emma", email: "emma@test.com", password: "123456", current_goal: "Sleep more", current_dreams: "Weird", current_influences: "Stressful Teaching" },
+  { username: "Adam", email: "adam@test.com", password: "123456", current_goal: "Sleep less", current_dreams: "Crazy", current_influences: "Stressful Teaching" }
 ])
 
 puts "Creating Dreams 💭 💭 💭"
@@ -57,11 +57,24 @@ rebeca_dreams = [
 
 # Emma's Dreams
 emma_dreams = [
-  "I was in a school of fish, learning the secrets of the sea as one of them.",
-  "In a nightmare, I was trapped in a mirror maze, facing reflections of my past.",
-  "I dreamt of a joyous moment, feeling the kick of my unborn child.",
-  "I found an old journal of my grandfather, unlocking memories of his adventurous life.",
-  "I experienced sleep paralysis, feeling a mysterious presence in my room."
+  "Dream of a night app ecosystem where messages are left for nocturnal users.",
+  "A moment of connection with old friend at a table, disrupted by an interruption.",
+  "Unexpected reunion on a Berlin street, followed by an emotional turmoil.",
+  "A peaceful dream of old friend announcing a visit, lying in the grass.",
+  "A disturbing dream of a turtle's demise, leading to an aquatic escape.",
+  "Packing anxieties and anticipation of meeting my Ex, hindered by disorganization.",
+  "Reflections on a birthday, a brief note from old friend, and emotional ambiguities.",
+  "Visit to Ami's new place, deep conversations, fluctuating images of past and present.",
+  "A frustrating experience with a Swedish class, emotions running high in a mysterious house.",
+  "Walentina's alarmed look, a threat lurking in the background of my dream.",
+  "Reunion with Ex, a sense of unfamiliarity in a newly discovered place.",
+  "A dream visit to Tel Aviv University, amid the bustling city market.",
+  "A frightening home invasion, a narrow escape to Jaffa for cleansing and relief.",
+  "An unexpected email from Ex, realization of being blocked, emotions stirred.",
+  "A hospital visit to Ex, unexpected anger, and the remnants of a family meal.",
+  "A heart-wrenching dream of a child in peril, the intensity of parental love.",
+  "Experiencing a bomb attack with friends, awakening in Ex's arms, a vivid nightmare.",
+  "A dream of unexpected pregnancy, mixed reactions from loved ones, life's uncertainties."
 ]
 
 # Adam's Dreams
