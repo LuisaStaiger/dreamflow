@@ -15,4 +15,17 @@ class Dream < ApplicationRecord
   def content
     (super || "") + answers.map(&:user_answer).join(" ")
   end
+
+  def title
+    client = OpenAI::Client.new
+    chaptgpt_response = client.chat(
+      parameters: {
+        model: "gpt-3.5-turbo",
+        messages: [{
+          role: "user",
+          content: "Please generate a short title for this #{content}, not longer than 20 character."
+        }]
+      })
+    return chaptgpt_response["choices"][0]["message"]["content"]
+  end
 end
