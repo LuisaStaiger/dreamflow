@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
 
   def index
     @dream_of_today = Dream.todays_dream(current_user)
-    @questions = Question.where(user: current_user).or(Question.where(original: true))
+    @questions = Question.where(user: current_user).or(Question.where(original: true)).order(:id)
   end
 
   def new

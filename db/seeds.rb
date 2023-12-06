@@ -8,16 +8,17 @@ Dream.destroy_all
 Question.destroy_all
 User.destroy_all
 
-puts "Creating Users 🙋🏼‍♀️ 🤷🏼‍♀️ 🤷🏽‍♀️ 💁🏻‍♀️"
+# Users
 users = User.create([
-  { username: "Giulia", email: "giulia@test.com", password: "123456" },
-  { username: "Luisa", email: "luisa@test.com", password: "123456" },
-  { username: "Rebeca", email: "rebeca@test.com", password: "123456" },
-  { username: "Emma", email: "emma@test.com", password: "123456" },
-  { username: "Adam", email: "adam@test.com", password: "123456" }
-])
+  { username: "Giulia", email: "giulia@test.com", password: "123456", current_goal: "Sleep more", current_dreams: "Great", current_influences: "Stressful Bootcamp" },
+  { username: "Luisa", email: "luisa@test.com", password: "123456", current_goal: "Sleep better", current_dreams: "Positive", current_influences: "Stressful Bootcamp" },
+  { username: "Rebeca", email: "rebeca@test.com", password: "123456", current_goal: "Sleep more", current_dreams: "Confusing", current_influences: "Stressful Bootcamp" },
+  { username: "Emma", email: "emma@test.com", password: "123456", current_goal: "Sleep more", current_dreams: "Weird", current_influences: "Stressful Teaching" },
+  { username: "Adam", email: "adam@test.com", password: "123456", current_goal: "Sleep less", current_dreams: "Crazy", current_influences: "Stressful Teaching" }
+  ])
+puts "Creating #{User.count} Users 🙋🏼‍♀️ 🤷🏽‍♀️ 💁🏻‍♀️ 💻 🤷🏼‍♂️ 🤷🏼‍♀️"
 
-puts "Creating Dreams 💭 💭 💭"
+# Dreams
 def create_dreams_for(user, dream_contents)
   dream_contents.each do |content|
     Dream.create(
@@ -27,14 +28,16 @@ def create_dreams_for(user, dream_contents)
     )
   end
 end
+puts "Creating Dreams 💭 💭 💭"
 
 # Giulia's Dreams
 giulia_dreams = [
-  "I dreamt I was dating Bad Bunny...what a dream",
+  "I dreamt I was dating Bad Bunny and while I was doing perreo perreo he proposed to me.",
   "I dreamt a childhood memory. I was at the beach in my grandparents house, the sky was grey and I was feeling anxious",
   "I dreamt I was smoking again!! but after a couple of cigarette puffs I was already regretting my choice. This dream was so realistic. ",
   "I dreamt I was kicked out from Le Wagon because I forgot to do my flashcard and Pedro was furious at me",
-  "I dreamt about coding, again"
+  "I dreamt about coding, again",
+  "Adam was eating spaghetti during the lecture while Pedro was dancing brazilian samba."
 ]
 
 # Luisa's Dreams
@@ -57,11 +60,24 @@ rebeca_dreams = [
 
 # Emma's Dreams
 emma_dreams = [
-  "I was in a school of fish, learning the secrets of the sea as one of them.",
-  "In a nightmare, I was trapped in a mirror maze, facing reflections of my past.",
-  "I dreamt of a joyous moment, feeling the kick of my unborn child.",
-  "I found an old journal of my grandfather, unlocking memories of his adventurous life.",
-  "I experienced sleep paralysis, feeling a mysterious presence in my room."
+  "Dream of a night app ecosystem where messages are left for nocturnal users.",
+  "A moment of connection with old friend at a table, disrupted by an interruption.",
+  "Unexpected reunion on a Berlin street, followed by an emotional turmoil.",
+  "A peaceful dream of old friend announcing a visit, lying in the grass.",
+  "A disturbing dream of a turtle's demise, leading to an aquatic escape.",
+  "Packing anxieties and anticipation of meeting my Ex, hindered by disorganization.",
+  "Reflections on a birthday, a brief note from old friend, and emotional ambiguities.",
+  "Visit to Ami's new place, deep conversations, fluctuating images of past and present.",
+  "A frustrating experience with a Swedish class, emotions running high in a mysterious house.",
+  "Walentina's alarmed look, a threat lurking in the background of my dream.",
+  "Reunion with Ex, a sense of unfamiliarity in a newly discovered place.",
+  "A dream visit to Tel Aviv University, amid the bustling city market.",
+  "A frightening home invasion, a narrow escape to Jaffa for cleansing and relief.",
+  "An unexpected email from Ex, realization of being blocked, emotions stirred.",
+  "A hospital visit to Ex, unexpected anger, and the remnants of a family meal.",
+  "A heart-wrenching dream of a child in peril, the intensity of parental love.",
+  "Experiencing a bomb attack with friends, awakening in Ex's arms, a vivid nightmare.",
+  "A dream of unexpected pregnancy, mixed reactions from loved ones, life's uncertainties."
 ]
 
 # Adam's Dreams
@@ -79,16 +95,16 @@ create_dreams_for(users[2], rebeca_dreams)
 create_dreams_for(users[3], emma_dreams)
 create_dreams_for(users[4], adam_dreams)
 
-puts "Dreams Created Successfully 🌌"
+puts "#{Dream.count} Dreams Created Successfully 🌌"
 
-puts "Creating Labels 🏷️"
+puts "Creating Labels 🏷️ 🏷️ 🏷️"
 Label.create(
   name: "Nightmare",
   description: "A nightmare is a disturbing dream associated with negative feelings, such as anxiety or fear that awakens you. Nightmares are common in children but can happen at any age."
   )
 
 Label.create(
-  name: "Pregnancy",
+  name: "Bad Bunny",
   description: "Pregnancy is the time during which one or more offspring develops (gestates) inside a woman's uterus (womb).",
   )
 
@@ -98,7 +114,7 @@ Label.create(
 )
 
 Label.create(
-  name: "Ex",
+  name: "Anmeldung",
   description: "This could be one that formerly held a specified position or place. especially : a former spouse or former partner in an intimate relationship."
   )
 
@@ -113,19 +129,29 @@ Label.create(
   )
 
 Label.create(
-  name: "Sea",
+  name: "Spaghetti",
   description: "A sea is a large body of salty water. There are particular seas and the sea. The sea commonly refers to the ocean, the wider body of seawater."
   )
 
 Label.create(
-  name: "Animal",
-  description:   "Similarly, in dreams, animals often symbolize emotions, expression and the response of your more 'wild,' uncivilized, yet natural self. This part of your nature can be at odds with the inner critic that coaxes you toward conformity."
+  name: "Adam",
+  description: "Similarly, in dreams, animals often symbolize emotions, expression and the response of your more 'wild,' uncivilized, yet natural self. This part of your nature can be at odds with the inner critic that coaxes you toward conformity."
   )
+
+Label.create(
+  name: "Coding",
+  description: "Similarly, in dreams, animals often symbolize emotions, expression and the response of your more 'wild,' uncivilized, yet natural self. This part of your nature can be at odds with the inner critic that coaxes you toward conformity."
+    )
+
+Label.create(
+    name: "Naked",
+    description: "Similarly, in dreams, animals often symbolize emotions, expression and the response of your more 'wild,' uncivilized, yet natural self. This part of your nature can be at odds with the inner critic that coaxes you toward conformity."
+      )
 
 puts "Creating Questions 💬 💬 💬"
 questions_data = [
   {
-    question: "Did I dream last night?",
+    question: "What's the first thing I remember about my dream?",
     explanation: "Start by simply asking yourself if you remember any dreams. This sets the intention to recall your dreams.",
     original: true
   },
@@ -183,4 +209,4 @@ end
 DreamLabel.create(dream: Dream.last, label: Label.last)
 DreamLabel.create(dream: Dream.last, label: Label.first)
 
-puts "Finished!"
+puts "Ladies, we're done! 👩🏼‍💻"
