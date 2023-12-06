@@ -40,7 +40,7 @@ class DreamsController < ApplicationController
   def edit; end
 
   def update
-    # Destaoy all dream_labels
+    # Destroy all dream_labels
     @dream.dream_labels.destroy_all
     # Regenerate all the dream_labels
     generate_dream_labels(@dream, params[:dream][:label_ids])
@@ -66,9 +66,11 @@ class DreamsController < ApplicationController
   private
 
   def generate_dream_labels(dream, label_ids)
-    label_ids.each do |label_id|
-      unless label_id.empty?
-        DreamLabel.create(label: Label.find(label_id), dream: dream)
+    unless label_ids.nil?
+      label_ids.each do |label_id|
+        unless label_id.empty?
+          DreamLabel.create(label: Label.find(label_id), dream: dream)
+        end
       end
     end
   end

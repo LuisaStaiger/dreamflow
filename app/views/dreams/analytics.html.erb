@@ -1,14 +1,30 @@
-<h2>Dream Analytics</h2>
+<div class="container">
+  <%= link_to "↩", root_path, class: "btn button_one text-white" %>
+    <h1 class="title">My Profile 🌌</h1>
+    <div class="d-flex justify-content-center mt-3">
+      <img src="https://images.unsplash.com/photo-1490814525860-594e82bfd34a?q=80&w=2521&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="border-radius: 50%; width: 100px; height: 100%;" alt="User Image">
+    </div>
+    <div class="opacity-box p-4">
+      <h4><%= current_user.username %></h4>
+      <br>
+      <p>🚀 <%= current_user.current_goal %></p>
+      <p>🍷 <%= current_user.current_influences %></p>
+      <p>💭 <%= current_user.current_dreams %></p>
+    </div>
+
   <div class="analytics-container">
-    <h1>Dream Analytics</h1>
-      <div id="dream-chart">
-        <canvas id="dreamPieChart" data-controller="analytics"
-            data-analytics-labels-value="<%= @label_counts.keys %>"
-            data-analytics-data-value="<%= @label_counts.values %>">
-        </canvas>
-      </div>
-     <h2>Dream Count:</h2>
+    <h2>Dream Analytics</h2>
+    <div id="dream-chart">
+      <canvas id="dreamPieChart" data-controller="analytics"
+              data-analytics-labels-value="<%= @label_counts.keys %>"
+              data-analytics-data-value="<%= @label_counts.values %>">
+      </canvas>
+    </div>
+
+    <h2>Dream Count</h2>
       <div class="dream-count">
         <%= @dream_counts %>
-      </div>
+    </div>
   </div>
+  <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link bottom-icons" %>
+</div>
