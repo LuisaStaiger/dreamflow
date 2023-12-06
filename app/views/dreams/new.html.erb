@@ -1,10 +1,14 @@
 <div class="container">
   <%= link_to "↩", root_path, class: "btn button_one text-white" %>
   <div class="opacity-box">
-  <div class="date-container">
-    <h5><%= Date.today.strftime('%d.%m.%Y') %></h5>
-  </div>
-  <%= simple_form_for(@dream) do |f| %>
+    <div class="date-container">
+      <h5><%= Date.today.strftime('%d.%m.%Y') %></h5>
+    </div>
+    <div class="tags">
+      <% @labels.each do |label| %>
+        <div class="tag"><%= label.name %></div>
+      <% end %>
+    </div>  <%= simple_form_for(@dream) do |f| %>
     <div class="textarea-container">
       <%= f.label :content,'My Dream', style: 'margin-left: 15px;' %>
       <%= f.text_area :content, class: 'form-control transparent-textarea dream-placeholder',

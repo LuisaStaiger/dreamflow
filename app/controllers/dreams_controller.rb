@@ -11,6 +11,7 @@ class DreamsController < ApplicationController
 
   def new
     @dream = Dream.new
+    @labels = Label.all
   end
 
   def new_audio
@@ -57,7 +58,7 @@ class DreamsController < ApplicationController
 
   def analytics
     @label_counts = Label.joins(:dreams).group('labels.name').count
-    @dream_counts = Dream.where(user: current_user).size 
+    @dream_counts = Dream.where(user: current_user).size
 
   end
 
