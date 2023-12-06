@@ -52,7 +52,8 @@ class DreamsController < ApplicationController
   end
 
   def destroy
-    @dream.destroy
+    @dream.id = params[:id]
+    @dream.destroy!
     redirect_to dreams_path, status: :see_other
   end
 

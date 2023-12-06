@@ -19,7 +19,7 @@
 
           <div class="date-container-index-cards">
             <h4 style="display: inline; font-weight: normal;"><%= dream.date.strftime('%d.%m.%Y') %></h4>
-            <h4 style="display: inline-block; margin-left: 10px;">headline for dream</h4>
+            <h4 style="display: inline-block; margin-left: 10px;"><%= dream.title.delete('"') %></h4>
           </div>
 
           <div class="tags">
