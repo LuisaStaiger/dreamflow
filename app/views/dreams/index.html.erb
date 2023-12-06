@@ -22,6 +22,13 @@
             <h4 style="display: inline-block; margin-left: 10px;">headline for dream</h4>
           </div>
 
+          <div class="tags">
+            <% dream.labels.each do |label| %>
+              <div class="tag"><%= label.name %></div>
+            <% end %>
+          </div>
+
+
           <div class="textarea-container form-control-index transparent-textarea">
               <%= dream.content.truncate(300)%>
           </div>
