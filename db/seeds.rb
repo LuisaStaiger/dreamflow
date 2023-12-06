@@ -8,16 +8,17 @@ Dream.destroy_all
 Question.destroy_all
 User.destroy_all
 
-puts "Creating Users 🙋🏼‍♀️ 🤷🏼‍♀️ 🤷🏽‍♀️ 💁🏻‍♀️"
+# Users
 users = User.create([
   { username: "Giulia", email: "giulia@test.com", password: "123456", current_goal: "Sleep more", current_dreams: "Great", current_influences: "Stressful Bootcamp" },
   { username: "Luisa", email: "luisa@test.com", password: "123456", current_goal: "Sleep better", current_dreams: "Positive", current_influences: "Stressful Bootcamp" },
   { username: "Rebeca", email: "rebeca@test.com", password: "123456", current_goal: "Sleep more", current_dreams: "Confusing", current_influences: "Stressful Bootcamp" },
   { username: "Emma", email: "emma@test.com", password: "123456", current_goal: "Sleep more", current_dreams: "Weird", current_influences: "Stressful Teaching" },
   { username: "Adam", email: "adam@test.com", password: "123456", current_goal: "Sleep less", current_dreams: "Crazy", current_influences: "Stressful Teaching" }
-])
+  ])
+puts "Creating #{User.count} Users 🙋🏼‍♀️ 🤷🏽‍♀️ 💁🏻‍♀️ 💻 🤷🏼‍♂️ 🤷🏼‍♀️"
 
-puts "Creating Dreams 💭 💭 💭"
+# Dreams
 def create_dreams_for(user, dream_contents)
   dream_contents.each do |content|
     Dream.create(
@@ -27,6 +28,7 @@ def create_dreams_for(user, dream_contents)
     )
   end
 end
+puts "Creating Dreams 💭 💭 💭"
 
 # Giulia's Dreams
 giulia_dreams = [
@@ -92,9 +94,9 @@ create_dreams_for(users[2], rebeca_dreams)
 create_dreams_for(users[3], emma_dreams)
 create_dreams_for(users[4], adam_dreams)
 
-puts "Dreams Created Successfully 🌌"
+puts "#{Dream.count} Dreams Created Successfully 🌌"
 
-puts "Creating Labels 🏷️"
+puts "Creating Labels 🏷️ 🏷️ 🏷️"
 Label.create(
   name: "Nightmare",
   description: "A nightmare is a disturbing dream associated with negative feelings, such as anxiety or fear that awakens you. Nightmares are common in children but can happen at any age."
@@ -132,7 +134,7 @@ Label.create(
 
 Label.create(
   name: "Animal",
-  description:   "Similarly, in dreams, animals often symbolize emotions, expression and the response of your more 'wild,' uncivilized, yet natural self. This part of your nature can be at odds with the inner critic that coaxes you toward conformity."
+  description: "Similarly, in dreams, animals often symbolize emotions, expression and the response of your more 'wild,' uncivilized, yet natural self. This part of your nature can be at odds with the inner critic that coaxes you toward conformity."
   )
 
 puts "Creating Questions 💬 💬 💬"
@@ -196,4 +198,4 @@ end
 DreamLabel.create(dream: Dream.last, label: Label.last)
 DreamLabel.create(dream: Dream.last, label: Label.first)
 
-puts "Finished!"
+puts "Ladies, we're done! 👩🏼‍💻"
