@@ -154,12 +154,13 @@ input[placeholder], [placeholder], *[placeholder] {
   color: #b5aebe!important;
 }
 
-.form-control:focus {
+.transparent-textarea, .form-control:focus {
   color: #b5aebe!important;
   background-color: transparent;
-  border-color: transparent;
+  border-color: grey;
   outline: 0;
   box-shadow:none;
+
 }
 
 .textarea-container label {
