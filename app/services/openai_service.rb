@@ -10,8 +10,7 @@ class OpenaiService
         model: "whisper-1",
         file: File.open(audio_file, "rb")
       })
-
-    p response['text']
+    response['text']
   end
 
   def self.generate_title(dream_content)
