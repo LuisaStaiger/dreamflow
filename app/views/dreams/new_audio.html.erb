@@ -1,3 +1,5 @@
+    <img src="<%= asset_url("moth.png")%>" alt="" class="moth">
+
 <div class="container" data-controller="audio-input">
 
   <div class="wrap">
@@ -18,24 +20,29 @@
           <% end %>
 
           <textarea
-            style= 'min-height: 250px; background-color: transparent; width: 100%; height: 100px;'
-            class= 'form-control'
-            place= 'Describe your dream...'
+            style='
+                  color: #b5aebe;
+                  background-color: transparent;
+                  border: transparent;
+                  width: 100%;
+                  height: 200px;'
+            class='form-control'
+            placeholder='Describe your dream...'
             id="transcribedText"
             data-audio-input-target="transcribedText">
           </textarea>
         </div>
 
 
-      <div class="tags">
-        <%= link_to '#', class: "btn button_one violet button--mic",
-          data: {
-            action: "click->audio-input#toggleRecording",
-            audio_input_target: "recordButton" } do %>
-        <i class="fa fa-microphone record-icon"></i>
+        <div class="tags">
+          <%= link_to '#', class: "btn button_one violet button--mic",
+            data: {
+              action: "click->audio-input#toggleRecording",
+              audio_input_target: "recordButton" } do %>
+            <i class="fa fa-microphone record-icon" style="font-size: 50px;"></i>
+          <% end %>
+        </div>
 
-        <% end %>
-      </div>
 
   </div>
 
@@ -45,5 +52,9 @@
         <%= f.submit "Save", class: "btn button_one" %>
       <% end %>
     </div>
+
+
+
   </div>
+
 </div>
