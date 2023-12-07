@@ -2,6 +2,12 @@
 <html>
   <head>
     <title>Dreamflow</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+      <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+        <%= render 'shared/ios_pwa_links' %>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
