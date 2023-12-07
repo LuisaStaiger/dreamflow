@@ -1,38 +1,59 @@
-<div class="container p-3 text-white">
-  <%= link_to "↩", root_path, class: "btn button_one text-white" %>
-  <div class="opacity-box container">
-    <div class="date-container">
-      <h5><%= Date.today.strftime('%d.%m.%Y') %></h5>
-    </div>
+<div class="container">
 
-    <%= simple_form_for(@dream) do |f| %>
-        <div class="textarea-container mt-5">
-          <%= f.association :labels,
-          as: :check_boxes,
-          legend_tag: false,
-          input_html: { class: "tag-selector" },
-          item_wrapper_class: 'tag-item' %>
-          <%= f.input :content,
-          input_html: {
-            class: 'form-control transparent-textarea',
-            style: 'height: 250px;'
-          },
-          label: "My dream",
-          placeholder:
-            "Describe your dream..." %>
+  <%= link_to "↩", root_path, class: "btn button_one text-white" %>
+
+  <div class="cards-container">
+
+    <div class="opacity-box">
+
+      <%# DATE %>
+        <div class="date-container" style='color: #b5aebe; font: 20px;'>
+          <h5><%= Date.today.strftime('%d.%m.%Y') %></h5>
         </div>
-        <div class="buttons-container">
-        <%= f.submit "✔", class: "btn button_one" %>
+
+      <%# TAGS %>
+      <div style="margin-top: 50px;">
       </div>
+
+
+      <%= simple_form_for(@dream) do |f| %>
+
+        <%= f.association :labels,
+        as: :check_boxes,
+        legend_tag: false,
+        input_html: { class: "tag-selector" },
+        item_wrapper_class: 'tag-item' %>
+
+      <%# Text DREAM %>
+      <div class="index-dream-content-container">
+          <%= f.input :content, input_html: {
+          # class: 'form-control transparent-textarea',
+          style: 'height: 250px;
+                  background-color: transparent;
+                  border: transparent;'
+        },
+        label: "My dream",
+        placeholder:
+          "Describe your dream..." %>
+      </div>
+
+      <%# BUTTON  %>
+      <div class="buttons-container">
+      <%= f.submit "✔", class: "btn button_one" %>
+      </div>
+
       <% end %>
 
-    <script>
-      document.addEventListener('input', function(event) {
-        if (event.target.classList.contains('auto-grow')) {
-          event.target.style.height = 'auto';
-          event.target.style.height = (event.target.scrollHeight) + 'px';
-        }
-      });
-    </script>
+     </div>
   </div>
+
+
+      <script>
+        document.addEventListener('input', function(event) {
+          if (event.target.classList.contains('auto-grow')) {
+            event.target.style.height = 'auto';
+            event.target.style.height = (event.target.scrollHeight) + 'px';
+          }
+        });
+      </script>
 </div>
