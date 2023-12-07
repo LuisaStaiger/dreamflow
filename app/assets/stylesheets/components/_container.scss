@@ -102,8 +102,17 @@
 
 .buttons-container {
 // ?display: flex;
+  text-align: center;
   gap: 10px;
   padding: 15px;
+}
+
+fieldset {
+  text-align: center;
+}
+
+.form-label {
+  font-size: 1.25rem;
 }
 
 .cards-container {
@@ -137,13 +146,21 @@
 }
 
 
+.form-control {
+  color: #b5aebe !important;
+}
 
-.form-control:focus {
-  color: white !important;
+input[placeholder], [placeholder], *[placeholder] {
+  color: #b5aebe!important;
+}
+
+.transparent-textarea, .form-control:focus {
+  color: #b5aebe!important;
   background-color: transparent;
-  border-color: transparent;
+  border-color: grey;
   outline: 0;
   box-shadow:none;
+
 }
 
 .textarea-container label {
@@ -202,6 +219,10 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+ }
+
+ .date-container h5 {
+  color: #b5aebe;
  }
 
  .textarea-container textarea {
