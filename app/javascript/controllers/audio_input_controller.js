@@ -1,4 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
+import AudioRecorder from 'audio-recorder-polyfill'
+window.MediaRecorder = AudioRecorder
 
 export default class extends Controller {
   static targets = ["transcribedText", "recordButton", "submitButton"]
@@ -9,13 +11,22 @@ export default class extends Controller {
     this.audioChunks = [];
   }
 
-  toggleRecording() {
+  toggleRecording(e) {
+    e.preventDefault();
     if (!this.isRecording) {
       navigator.mediaDevices.getUserMedia({ audio: true })
       .then(stream => {
         this.mediaRecorder = new MediaRecorder(stream);
-        this.mediaRecorder.ondataavailable = e => this.audioChunks.push(e.data);
-        this.mediaRecorder.onstop = e => this.sendAudioToServer();
+
+        this.mediaRecorder.addEventListener('dataavailable', e => {
+          console.log("data is available")
+          this.audioChunks.push(e.data)
+        })
+
+        this.mediaRecorder.addEventListener('stop', e => {
+          this.sendAudioToServer()
+        })
+
         this.mediaRecorder.start();
 
         this.isRecording = true;
@@ -25,6 +36,7 @@ export default class extends Controller {
     } else {
       console.log("👻")
       this.mediaRecorder.stop();
+      this.mediaRecorder.stream.getTracks().forEach(track => track.stop())
       this.isRecording = false;
       this.recordButtonTarget.innerText = 'Start Recording';
     }
@@ -33,7 +45,7 @@ export default class extends Controller {
   sendAudioToServer() {
     const audioBlob = new Blob(this.audioChunks);
     const formData = new FormData();
-    formData.append('audio', audioBlob, 'recording.mp3');
+    formData.append('audio', audioBlob, 'recording.mp4');
 
     const csrf = document.querySelector('meta[name=csrf-token]').content
 
