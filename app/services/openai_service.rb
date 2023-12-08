@@ -1,16 +1,15 @@
 require "openai"
 
 class OpenaiService
-  def self.transcribe(audio_path)
-    audio_file = File.open(audio_path, "rb")
+  def self.transcribe(audio_file)
     client = OpenAI::Client.new
 
     response = client.audio.transcribe(
       parameters: {
         model: "whisper-1",
-        file: File.open(audio_file, "rb")
+        file: audio_file
       })
-
+    p response
     p response['text']
   end
 
