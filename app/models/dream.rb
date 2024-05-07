@@ -30,38 +30,31 @@ class Dream < ApplicationRecord
     return new_title
   end
 
-
   def generate_content_from_answers
     # Collect all answers from this dream
-    answers_content = self.dream_questions.map { |dq| dq.answer&.user_answer }
 
-    # Join all the answers into a single string, separated by commas
-    generated_content = answers_content.compact.join(', ')
+    answers_content = self.dream_questions.map do |dq|
+      "#{dq.question.question_text}: #{dq.answer&.user_answer}" if dq.answer
+    end.compact
+
+    # Set up the OpenAI client
+    client = OpenAI::Client.new
+    # Call the OpenAI API
+    gpt_response = client.chat(
+      parameters: {
+        model: "gpt-3.5-turbo",
+        messages: [{
+          role: "user",
+          content: "Please generate a very short dream based on these questions and answers that is not adding anything that wasnt mentioned: #{answers_content.join(', ')}"
+        }]
+      })
+
+    generated_content = gpt_response&.dig("choices", 0, "message", "content")
+    if generated_content.nil?
+      generated_content = answers_content.join(', ')
+    end
+    # Return the generated content
+    generated_content
   end
-
-
-
-  # def generate_content_from_answers
-  #   # Collect all answers from this dream
-  #   answers_content = self.dream_questions.map { |dq| dq.answer&.content }
-  #   # Set up the OpenAI client
-  #   client = OpenAI::Client.new
-  #   # Call the OpenAI API
-  #   gpt_response = client.chat(
-  #     parameters: {
-  #       model: "gpt-3.5-turbo",
-  #       messages: [{
-  #         role: "user",
-  #         content: "Please generate a dream based on these answers: #{answers_content.join(', ')}"
-  #       }]
-  #     })
-
-  #   generated_content = gpt_response&.dig("choices", 0, "message", "content")
-  #   if generated_content.nil?
-  #     generated_content = answers_content.join(', ')
-  #   end
-  #   # Return the generated content
-  #   generated_content
-  # end
 
 end
