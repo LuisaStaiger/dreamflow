@@ -10,4 +10,5 @@ class DreamQuestionsController < ApplicationController
   def dream_question_params
     params.require(:answer).permit(:dream_id, :question_id)
   end
+
 end

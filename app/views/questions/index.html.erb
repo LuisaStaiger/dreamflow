@@ -1,8 +1,7 @@
 <div class="container p-2 text-white">
   <div class="d-flex justify-content-between">
     <%= link_to "↩", root_path, class: "btn button_one text-white" %>
-    <%= link_to 'Generate Dream', dreams_path, class: "btn button_one text-white" %>
-  </div>
+    <%= button_to 'Generate Dream', new_answered_questions_dream_path(@dream_of_today), method: :post, class: "btn button_one text-white" %>  </div>
 
   <div class="container opacity-box mt-4 p-4" style="display: grid !important;">
 
