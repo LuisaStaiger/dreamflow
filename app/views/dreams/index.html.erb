@@ -25,16 +25,13 @@
             <%= dream.title.delete('"') %>
             </div>
           <div class="index-dream-content-container">
-              <%= dream.content.truncate(300)%>
+              <%= dream.content.truncate(300) if dream.content%>
           </div>
           <div class="tags">
             <% dream.labels.each do |label| %>
               <div class="tag"><%= label.name %></div>
             <% end %>
           </div>
-
-
-
         </div>
       <% end %>
     <% end %>

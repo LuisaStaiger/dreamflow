@@ -12,21 +12,6 @@ class Dream < ApplicationRecord
     dream || Dream.create(user: current_user, date: Time.current)
   end
 
-  def content
-    (super || "") + answers.map(&:user_answer).join(" ")
-  end
-
-
-
-
-  def title
-      if super.blank?
-        set_dream_title
-      else
-        super
-      end
-  end
-
   def set_dream_title
     client = OpenAI::Client.new
     chaptgpt_response = client.chat(
@@ -37,10 +22,10 @@ class Dream < ApplicationRecord
           content: "Please generate a short title for this #{content}, not longer than 20 character."
         }]
       })
-    new_title = chaptgpt_response["choices"][0]["message"]["content"]
-
-    update(title: new_title)
+    new_title = chaptgpt_response&.dig("choices", 0, "message", "content")
+    new_title = "Your Dream" if new_title.nil?
+    update(title: new_title) if new_title
     return new_title
   end
-  
+
 end

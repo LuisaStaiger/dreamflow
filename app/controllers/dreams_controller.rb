@@ -7,6 +7,9 @@ class DreamsController < ApplicationController
     else
       @dreams = Dream.where(user: current_user)
     end
+      @dreams.each do |dream|
+        dream.set_dream_title if dream.title.nil?
+      end
   end
 
   def new
