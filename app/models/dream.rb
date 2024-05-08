@@ -33,9 +33,10 @@ class Dream < ApplicationRecord
   def generate_content_from_answers
     # Collect all answers from this dream
 
-    answers_content = self.dream_questions.map do |dq|
-      "#{dq.question.question_text}: #{dq.answer&.user_answer}" if dq.answer
-    end.compact
+    answered_questions = self.dream_questions.select { |dq| dq.answer.present? }
+    answers_content = answered_questions.map do |dq|
+      "#{dq.question.question_text}: #{dq.answer.user_answer}"
+    end
 
     # Set up the OpenAI client
     client = OpenAI::Client.new
@@ -45,7 +46,7 @@ class Dream < ApplicationRecord
         model: "gpt-3.5-turbo",
         messages: [{
           role: "user",
-          content: "Please generate a very short dream based on these questions and answers that is not adding anything that wasnt mentioned: #{answers_content.join(', ')}"
+          content: "Please generate short text that link the questions and answers that is not adding anything that wasnt mentioned: #{answers_content.join(', ')}"
         }]
       })
 

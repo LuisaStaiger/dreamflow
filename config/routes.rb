@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get "dreams/new_audio", to: "dreams#new_audio", as: :create_new_audio
   post "dreams/new_audio", to: "dreams#new_audio", as: :new_audio_dreams
-
+  post 'dreams/new_answered_questions', to: 'dreams#new_answered_questions', as: 'new_answered_questions'
   resources :questions
   resources :answers, only: [:create, :update ]
   resources :dream_questions
