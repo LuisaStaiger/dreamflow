@@ -11,20 +11,19 @@
 
 <p class="date"><%= "#{Date.today.strftime('%A, %B %d, %Y')}" %></p>
 
-<div class="container">
-  <img src="<%= asset_url("moonball.png")%>" alt="" class="moonball">
-  <img src="<%= asset_url("figure.png")%>" alt="" class="figure" style="z-index: -1;">
+<div class="d-flex justify-content-center">
+  <button type="button" class="button home-buttons-container-1">
+    <%= link_to new_dream_path do %><i class="fa-solid fa-pen"></i><% end %>
+  </button>
+</div>
 
-    <div class="d-flex justify-content-center">
-        <button type="button" class="button"><%= link_to new_dream_path do %><i class="fa-solid fa-pen"></i><% end %></button>
-    </div>
-
-    <div class="d-flex justify-content-around mt-4">
-          <button type="button" class="button">
-            <%= link_to create_new_audio_path do %>
-              <i class="fa-solid fa-microphone-lines"></i>
-            <% end %>
-          </button>
-          <button type="button" class="button"><%= link_to questions_path do %><i class="fa-solid fa-question"></i><% end %></button>
-    </div>
-  </div>
+<div class="d-flex justify-content-around mt-4">
+  <button type="button" class="button home-buttons-container">
+    <%= link_to create_new_audio_path do %>
+      <i class="fa-solid fa-microphone-lines"></i>
+    <% end %>
+  </button>
+  <button type="button" class="button home-buttons-container">
+    <%= link_to questions_path do %><i class="fa-solid fa-question"></i><% end %>
+  </button>
+</div>
