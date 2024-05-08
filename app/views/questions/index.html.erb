@@ -1,7 +1,11 @@
 <div class="container p-2 text-white">
   <div class="d-flex justify-content-between">
     <%= link_to "↩", root_path, class: "btn button_one text-white" %>
-    <%= link_to 'Generate Dream', dreams_path, class: "btn button_one text-white" %>
+    <% if @dream_of_today.present? %>
+      <%= button_to 'Generate Dream', new_answered_questions_dream_path(@dream_of_today), method: :post, class: "btn button_one text-white" %>
+    <% else %>
+      <%= button_to 'Generate Dream', new_answered_questions_path, method: :post, class: "btn button_one text-white" %>
+    <% end %>
   </div>
 
   <div class="container opacity-box mt-4 p-4" style="display: grid !important;">
@@ -11,33 +15,19 @@
         <%= question.question_text %>
       </div>
 
-        <% answer = DreamQuestion.find_by(dream: @dream_of_today, question: question)&.answer %>
-        <% if answer.present? %>
-            <%= simple_form_for(answer, remote: true ) do |f| %>
-              <div class="textarea-container">
-                <%= f.input :user_answer, label: "✏️",
-                input_html: {
-                  class: 'form-control transparent-textarea',
-                } %>
-              </div>
-              <div class="buttons-container">
-                <%= f.submit "Update answer", class: "btn button_one" %>
-              </div>
-            <% end %>
-        <% else %>
-            <%= simple_form_for(Answer.new, url: dream_questions_path, method: :post, remote: true) do |f| %>
-              <div class="textarea-container">
-                <%= f.input :user_answer, label: "✏️",
-                input_html: {
-                  class: 'form-control transparent-textarea',
-                } %>
-              </div>
-              <div class="buttons-container">
-                <%= f.submit "Add answer to dream", class: "btn button_one"  %>
-              </div>
-                <%= f.input :dream_id, as: :hidden, input_html: {value: @dream_of_today.id } %>
-                <%= f.input :question_id, as: :hidden, input_html: {value: question.id } %>
-            <% end %>
+        <% answer = DreamQuestion.find_by(dream: @dream_of_today, question: question)&.answer || Answer.new %>
+        <%= simple_form_for(answer, url: answer.new_record? ? dream_questions_path : url_for(answer), method: answer.new_record? ? :post : :patch, remote: true) do |f| %>
+          <div class="textarea-container">
+            <%= f.input :user_answer, label: "✏️",
+            input_html: {
+              class: 'form-control transparent-textarea',
+            } %>
+          </div>
+          <div class="buttons-container">
+            <%= f.submit answer.new_record? ? "Add answer" : "Update answer", class: "btn button_one" %>
+          </div>
+          <%= f.input :dream_id, as: :hidden, input_html: {value: @dream_of_today.id } if @dream_of_today.present? %>
+          <%= f.input :question_id, as: :hidden, input_html: {value: question.id } %>
         <% end %>
     <% end %>
   </div>

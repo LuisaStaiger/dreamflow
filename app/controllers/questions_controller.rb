@@ -1,13 +1,17 @@
 class QuestionsController < ApplicationController
 
   def index
-    @dream_of_today = Dream.todays_dream(current_user)
-    @questions = Question.where(user: current_user).or(Question.where(original: true)).order(:id)
-  end
+    if Dream.todays_dream(current_user)
+      @dream_of_today = Dream.todays_dream(current_user)
+    # else
+    #   @dream_of_today = Dream.create(user: current_user, date: Date.today)
+    end
+      @questions = Question.where(user: current_user).or(Question.where(original: true)).order(:id)
+    end
 
-  def new
-    @question = Question.new
-  end
+    def new
+      @question = Question.new
+    end
 
   def create
     @question = Question.new(question_params)
@@ -19,6 +23,8 @@ class QuestionsController < ApplicationController
     else
       render :new
     end
+
+
   end
 
   def show

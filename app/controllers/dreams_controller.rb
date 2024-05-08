@@ -26,6 +26,19 @@ class DreamsController < ApplicationController
     end
   end
 
+  def new_answered_questions
+    # Find the dream or create a new one if it doesn't exist
+    @dream = Dream.find_by(id: params[:id]) || Dream.create(user: current_user, date: Date.today)
+
+    # Generate the dream content
+    generated_content = @dream.generate_content_from_answers
+
+    # Update the dream's content
+    @dream.update(content: generated_content)
+
+    redirect_to @dream
+  end
+
   def create
     @dream = Dream.new(dream_params)
     @dream.user = current_user
