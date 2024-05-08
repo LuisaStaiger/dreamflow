@@ -4,6 +4,14 @@
   color: white;
 }
 
+.home-buttons-container-1 {
+  margin-top: -170px;
+}
+
+.home-buttons-container {
+  margin-top: -110px;
+}
+
 // new recording opacity box
 .new-recording-opacity-box {
   position: relative;
@@ -101,10 +109,11 @@
 }
 
 .buttons-container {
-// ?display: flex;
+  // display: flex;
   text-align: center;
   gap: 10px;
   padding: 15px;
+  margin-top: -20px; // Move the buttons container up by 20px
 }
 
 fieldset {
