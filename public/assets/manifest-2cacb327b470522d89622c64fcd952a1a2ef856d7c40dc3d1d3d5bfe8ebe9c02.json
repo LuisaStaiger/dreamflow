@@ -1,0 +1,179 @@
+{
+  "background_color": "white",
+  "description": "DreamFl0w is an app to store your dreams",
+  "display": "fullscreen",
+  "scope": "/",
+  "name": "DreamFl0w",
+  "icons": [
+    
+    
+      
+      {
+        "src": "/assets/icons/favicon-16x16-5aec04b09decdb25fdb4352ea96e89dd6f6e7f2df254dd8a6e1cce7d4b405cef.png",
+        "sizes": "16x16",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/apple-icon-25af048819a9e1b19a9957c955e5e85f35c6df95c3e122da0162301cde546646.png",
+        "sizes": "",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/apple-icon-144x144-2076b339102d02a0728166699661c940c37c413f4d753ca4fdb4367d27a19991.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/android-icon-192x192-307b850584d876700b833f0d6fd4bef4393998869ac2b3812a217944a283f36a.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/apple-icon-precomposed-25af048819a9e1b19a9957c955e5e85f35c6df95c3e122da0162301cde546646.png",
+        "sizes": "",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/apple-icon-114x114-bc9098544595ff2f127615802103390b0b53e973059f4e294a5189a1c90d30ea.png",
+        "sizes": "114x114",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/ms-icon-310x310-0769a1b224225f84edd87419829240c208e96ec751593d058f775d00b642d090.png",
+        "sizes": "310x310",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/ms-icon-144x144-2076b339102d02a0728166699661c940c37c413f4d753ca4fdb4367d27a19991.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/apple-icon-57x57-06f88ad643bc3fd172d1df1767272fcfc001e58c18eab865ab62ed057dcf9415.png",
+        "sizes": "57x57",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/apple-icon-152x152-08b1c7c1c856c4b6e2a0f2dae24edd64509065123c7c6737399149d4ace30691.png",
+        "sizes": "152x152",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/ms-icon-150x150-764249795325139cdf8842c857a94813b2ab63da1c026b76fe97bba60bfed6f8.png",
+        "sizes": "150x150",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/android-icon-72x72-ea2dc9fb815c7edd6002b40f35d34fd3806808381b72b4ca57a5c29dc6a1099b.png",
+        "sizes": "72x72",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/android-icon-96x96-6ea771a1d9a0b75c37c2c1869539e2e1853106ab4a474899720d5eb1fb7890c5.png",
+        "sizes": "96x96",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/android-icon-36x36-45c6193d900d86806c26690896834d8eb806f7a4fce8eb936e50401f09ab2328.png",
+        "sizes": "36x36",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/apple-icon-180x180-b50f8536c77d158ce35702fb34b5d88b77a96735cffa6602077f72d0c00c7d0d.png",
+        "sizes": "180x180",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/favicon-96x96-6ea771a1d9a0b75c37c2c1869539e2e1853106ab4a474899720d5eb1fb7890c5.png",
+        "sizes": "96x96",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/android-icon-48x48-6f3d030ab29c7d990ca1394e98abac5ee59c025e0524564f2e51097376ff2251.png",
+        "sizes": "48x48",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/apple-icon-76x76-31c838ad7a61d2c63a2b75ba867d3b36703b516ae8821f831194a23c8e74f1c2.png",
+        "sizes": "76x76",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/apple-icon-60x60-ce1ab3fb143ed1c54a2981a6295d276552eaf9079baa94a13edbf2821fae7d7b.png",
+        "sizes": "60x60",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/android-icon-144x144-2076b339102d02a0728166699661c940c37c413f4d753ca4fdb4367d27a19991.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/apple-icon-72x72-ea2dc9fb815c7edd6002b40f35d34fd3806808381b72b4ca57a5c29dc6a1099b.png",
+        "sizes": "72x72",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/apple-icon-120x120-3bf45aeb474c1b3559fcd48234018b48e52808594c33c1973a776a9a8a52dda3.png",
+        "sizes": "120x120",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/favicon-32x32-7056b45a5ccd7d753a6ac54822dadd379582f4b105a8d118f3df855a8a9b7af6.png",
+        "sizes": "32x32",
+        "type": "image/png"
+      },
+    
+      
+      {
+        "src": "/assets/icons/ms-icon-70x70-b57693cbede890fbdb746c4d54213751b6bc15a9357e9ba4d0ac722c53d05962.png",
+        "sizes": "70x70",
+        "type": "image/png"
+      }
+    
+  ]
+}
