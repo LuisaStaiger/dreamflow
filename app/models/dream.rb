@@ -8,10 +8,14 @@ class Dream < ApplicationRecord
   default_scope { order(created_at: :desc) }
 
   def self.todays_dream(current_user)
-    dream = Dream.find_by(user: current_user, date:  Time.current.beginning_of_day..Time.current.end_of_day)
-    dream || Dream.create(user: current_user, date: Time.current)
+    dream = Dream.where(user: current_user, date: Time.current.beginning_of_day..Time.current.end_of_day).first
+    dream ||= Dream.create(user: current_user, date: Time.current)
     Rails.logger.info "todays_dream called with user: #{current_user.inspect}, dream: #{dream.inspect}"
-  dream
+    dream
+  end
+
+  def self.create_with_audio(current_user)
+    Dream.create(user: current_user, date: Time.current)
   end
 
   def set_dream_title

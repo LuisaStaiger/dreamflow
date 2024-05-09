@@ -18,7 +18,7 @@ class DreamsController < ApplicationController
   end
 
   def new_audio
-    @dream_of_today = Dream.todays_dream(current_user)
+    @dream_of_today = Dream.create_with_audio(current_user)
     if params[:audio].present?
       audio_file = params[:audio].tempfile
       transcript = OpenaiService.transcribe(audio_file)
